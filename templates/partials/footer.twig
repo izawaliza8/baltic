@@ -1,0 +1,179 @@
+{% set data = {
+  "ticker": {
+    "direction": "rtl",
+    "items": [
+    {
+      "link_url": "#",
+      "link_label": "Simon Rogan",
+      "ranking": 3
+    },
+    {
+      "link_url": "#",
+      "link_label": "L’Enclume"
+    },
+    {
+      "link_url": "#",
+      "link_label": "Rogan & Co",
+      "ranking": 1
+    },
+    {
+      "link_url": "#",
+      "link_label": "Aulis London"
+    },
+    {
+      "link_url": "#",
+      "link_label": "Roganic HK"
+    },
+    {
+      "link_url": "#",
+      "link_label": "The Baker & The Bottleman"
+    },
+    {
+      "link_url": "#",
+      "link_label": "Our Shop"
+    },
+    {
+      "link_url": "#",
+      "link_label": "Aulis Cartmel"
+    },
+    {
+      "link_url": "#",
+      "link_label": "Aulis HK"
+    },
+    {
+      "link_url": "#",
+      "link_label": "ION HARBOUR BY SIMON ROGAN"
+    }
+  ] 
+  },
+  "navigation": [
+    {
+      "link_url": "/text-page",
+      "link_label": "Privacy policy"
+    },
+    {
+      "link_url": "/text-page",
+      "link_label": "Terms"
+    }
+  ]
+   
+   
+} %}
+
+{% set scrollspeed = data.ticker.direction == 'ltr' ? 1 : -1 %}
+
+
+<footer class="footer bg-orange pt-20 pb-20 pt-dt-10 pb-dt-10 fs-14 anim-trigger" data-root-margin="20">
+	<popup-opener data-pop-id="#info-popup"
+		class="footer__logo-wrapper container bg-orange reveal-no-delay">
+		<button type="button" class="footer__logo-button unstyled-button">
+			{% include './logo-svg.twig' with { "class": "footer__logo mb-10" } %}
+			{% include './logo-svg.twig' with { "class": "footer__logo footer__logo-2" } %}
+		</button>
+	</popup-opener>
+
+	<div class="footer__time-wrapper upper container reveal-delayed">
+		<div class="footer__time upper">
+			<time-el></time-el>
+			| Hong Kong
+		</div>
+
+		<div class="footer__newsletter">
+			Newsletter sign up here
+		</div>
+	</div>
+
+	<ul class="footer__socials unstyled-list container reveal-delayed">
+		<li class="footer__socials-item">
+			<a href="#" class="footer__socials-link upper animated-underline">
+				Instagram
+			</a>
+		</li>
+		<li aria-hidden="true">/</li>
+		<li class="footer__socials-item">
+			<a href="#" class="footer__socials-link upper animated-underline">
+				Facebook
+			</a>
+		</li>
+	</ul>
+
+	<sp-lide data-auto-scroll="1" class="splide footer__ticker reveal-delayed" data-splide='{
+						  "type": "loop",
+						  "autoWidth": true,
+						  "gap": "3rem",
+						  "focus": "center",
+						  "pagination": false,
+						  "arrows": false,
+						  "drag": "free",
+						  "autoScroll": {
+						    "speed": {{scrollspeed}},
+						    "pauseOnHover": true
+						  },
+						  "mediaQuery": "min",
+						  "breakpoints": {
+						    "1180": {
+						        "gap": "2.4rem"
+						    }
+						  }
+						}'>
+		<div class="splide__track">
+
+			<ul class="splide__list unstyled-list">
+				{% for item in data.ticker.items %}
+					<li class="splide__slide">
+						<a class="footer__ticker-link ff-mono fs-12 upper pt-10 pb-10 animated-underline" href="{{ item.link_url }}">
+							{{ item.link_label }}
+							{% if item.ranking is defined and item.ranking > 0 %}
+                <div class="footer__ticker-ranking">
+                  {% for i in 1..item.ranking %}
+                    {% include './flower-svg.twig' %}
+                  {% endfor %}
+                </div>
+							{% endif %}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</sp-lide>
+
+	<div class="footer__copy-wrapper container ff-mono upper fs-12 reveal-delayed">
+		<p class="footer__copy">
+			©2002–{{ "now"|date("Y") }}
+			Umbel Restaurant Group
+		</p>
+
+		<back-to-top class="animated-underline">
+			Back to top ↑
+		</back-to-top>
+
+
+	</div>
+
+	<div class="footer__links-wrapper container reveal-delayed">
+		<ul class="footer__links unstyled-list">
+			{% for item in data.navigation %}
+				<li class="footer__links-item">
+					<a href="{{ item.link_url }}" class="footer__links-link ff-mono upper fs-12 animated-underline">
+						{{ item.link_label }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+		<div class="footer__byline ff-mono upper fs-12">
+			<span>
+				Site by
+			</span>
+			<svg width="34" height="24" viewbox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M12.76 17.21C10.324 17.21 8.7 15.208 8.7 12.1C8.7 8.992 10.324 6.99 12.76 6.99C14.678 6.99 16.148 8.264 16.442 10.238L15.294 10.434C15 8.908 14.104 8.082 12.76 8.082C10.996 8.082 9.862 9.622 9.862 12.1C9.862 14.578 10.996 16.118 12.76 16.118C14.384 16.118 15.378 15.026 15.336 13.248H12.844V12.156H16.47V13.15C16.47 15.628 15.014 17.21 12.76 17.21ZM18.6155 17V7.2H22.4795C24.5515 7.2 25.7555 8.362 25.7555 10.224C25.7555 12.086 24.5515 13.22 22.4795 13.22H19.7775V17H18.6155ZM19.7775 12.128H22.4095C23.9075 12.128 24.5935 11.526 24.5935 10.224C24.5935 8.922 23.8795 8.292 22.4095 8.292H19.7775V12.128Z" fill="#000000"/>
+				<path d="M33.5 12C33.5 15.1077 31.7163 17.9706 28.7325 20.0768C25.75 22.1821 21.6035 23.5 17 23.5C12.3965 23.5 8.25 22.1821 5.26753 20.0768C2.28374 17.9706 0.5 15.1077 0.5 12C0.5 8.89234 2.28374 6.02941 5.26753 3.9232C8.25 1.81792 12.3965 0.5 17 0.5C21.6035 0.5 25.75 1.81792 28.7325 3.9232C31.7163 6.02941 33.5 8.89234 33.5 12Z" stroke="black"/>
+			</svg>
+
+		</div>
+
+
+	</div>
+
+
+</footer>

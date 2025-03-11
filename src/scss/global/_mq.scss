@@ -1,0 +1,63 @@
+@use "sass:list";
+//
+// Breakpoints
+//
+
+$breakpoints: (
+  small '(max-width: 400px)',
+  // for small phones
+  mobile '(min-width: 600px)',
+  // for mobile phones
+  tab '(min-width: 768px)',
+  // for tablet
+  sdt '(min-width: 911px)',
+  // for tablet
+  dt '(min-width: 1180px)',
+  //from horizontal ipad air
+  mid '(min-width: 1250px)',
+  // 13'' mac
+  medium '(min-width: 1380px)',
+
+  big '(min-width: 1500px)',
+  short '(max-height: 690px)'
+);
+
+$small: 'small';
+$mobile: 'mobile';
+$tab: 'tab';
+$sdt: 'sdt';
+$dt: 'dt';
+$mid: 'mid';
+$medium: 'medium';
+$big: 'big';
+$short: 'short';
+
+/**
+ * Sets a media query for the specified breakpoint
+ *
+ * Accepts:
+ * - $media-query: {String} Breakpoint variable (list found in variables.scss)
+ *
+ * Usage:
+ * .selector {
+ *   @include mq($medium-up) {
+ *     color: red;
+ *   }
+ * }
+ */
+@mixin mq($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $breakpoints {
+    $name: list.nth($breakpoint, 1);
+    $declaration: list.nth($breakpoint, 2);
+
+    @if $media-query == $name and $declaration {
+      $breakpoint-found: true;
+
+      @media only screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+}

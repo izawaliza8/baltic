@@ -1,0 +1,82 @@
+{% set faqs_data = {
+    "text_block_1": {
+      "big_text_html": "<p>If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.</p><p>Reservations for 2025 are now open. Sign up to our newsletter to receive priority booking invitations and other news.</p>",
+      "anim": true
+    },
+    "accordion_block": {
+      "assets": [
+        {
+          "image": "./images/ro-3.jpg",
+          "alt": "Placeholder Image 1",
+        },
+        {
+          "image": "./images/ro-2.jpg",
+          "alt": "Placeholder Image 2",
+        }
+      ],
+      "items": [
+        {
+          "title": "RESERVATIONS, WAITING LIST AND PRIORITY BOOKINGS",
+          "text_html": "<p>All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.
+</p>
+<p>
+Reservations for 2023 are not yet open. 
+Please sign up to our newsletter to receive priority booking invitations and other news.</p>",
+        },
+        {
+          "title": "MENUS AND WINE",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.",
+        },
+        {
+          "title": "DIETARY REQUIREMENTS AND ALLERGIES",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.",
+        },
+        {
+          "title": "SUSTAINABILITY",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.",
+        },
+        {
+          "title": "CANCELLATION POLICY",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.",
+        },
+        {
+          "title": "DIRECTIONS AND TRAVEL FROM WITHIN ASIA",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.
+
+Reservations for 2023 are not yet open. 
+Please sign up to our newsletter to receive priority booking invitations and other news.",
+        },
+        {
+          "title": "INTERNATIONAL TRAVEL AND CURRENT COVID RESTRICTIONS",
+          "text_html": "All our reservations are available on a first come, first serve basis. If the date you’re looking for is already fully booked, we recommend adding yourself to the waiting list. We will reach out to those on the waiting list if any tables become available.
+
+Reservations for 2023 are not yet open. 
+Please sign up to our newsletter to receive priority booking invitations and other news.",
+        },
+      ]
+    }
+  }
+%}
+
+{% extends './base.twig' %}
+
+{% block body_class %}bg-light-green{% endblock %}
+
+
+{% block header %}
+	{% include './partials/header.twig' %}
+{% endblock %}
+
+{% block content %}
+
+	{% include './partials/text.twig' with {"data": faqs_data.text_block_1, "class": "pt-32 pb-40 pt-dt-100 pb-dt-100"} %}
+
+	{% include './partials/accordion.twig' with {"data": faqs_data.accordion_block, "class": ""} %}
+
+	{% include './partials/rich-links-ticker.twig' with {"class" : "bg-light-green"} %}
+
+{% endblock %}
+
+{% block footer %}
+	{% include './partials/footer.twig' %}
+{% endblock %}

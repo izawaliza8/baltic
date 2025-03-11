@@ -1,0 +1,33 @@
+{% set class = data.flip ? 'twi--flip' : '' %}
+{% set class = data.flip_mobile ? class ~ ' twi--flip-mobile' : class %}
+
+<div class="twi pt-20 pb-20 pt-dt-60 pb-dt-60 {{class}} anim-trigger">
+	<div class="twi__wrapper container grid-wrapper">
+		<div class="twi__content pb-10 reveal-child">
+			<h2 class="twi__title fs-26 fs-dt-28">{{data.title}}</h2>
+			<div class="twi__text fs-dt-20 wysiwyg">{{data.text_html}}</div>
+			{% if data.links is not empty %}
+				<div class="twi__links">
+					{% for link in data.links %}
+						{% if link.url %}
+							<a href="{{link.url}}" class="twi__link fs-16 ff-mono upper underline">{{link.text}}</a>
+						{% elseif link.popup %}
+							<popup-opener data-pop-id="{{link.popup}}">
+								<button type="button" class="twi__link fs-16 ff-mono upper underline unstyled-button">{{ link.text }}</button>
+							</popup-opener>
+						{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<simple-carousel class="twi__asset reveal-child">
+				{% for asset in data.assets %}
+					{% if asset.video %}
+						<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+					{% else %}
+						<img src="{{ asset.image }}" alt="{{ asset.alt }}" data-asset>
+					{% endif %}
+				{% endfor %}
+			</simple-carousel>
+		</div>
+	</div>

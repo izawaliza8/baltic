@@ -1,0 +1,50 @@
+@use '../global/' as *;
+
+.ct {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mq($dt) {
+      display: grid;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mq($dt) {
+      grid-row: 1;
+      grid-column: 8 / span 5;
+      gap: 3.6rem;
+    }
+
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+
+    @include mq($dt) {
+      gap: 1rem 3.2rem;
+    }
+  }
+
+  &__asset {
+    width: 100%;
+    height: auto;
+
+    @include mq($dt) {
+      grid-row: 1;
+      grid-column: 1 / span 6;
+    }
+
+  }
+
+}

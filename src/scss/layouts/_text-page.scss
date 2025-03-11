@@ -1,0 +1,25 @@
+@use '../global/' as *;
+
+.text-page {
+	&__top {
+		position: relative;
+		min-height: 38rem;
+		padding-top: 6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__heading {
+		color: var(--white);
+		max-width: 80%;
+		position: relative;
+		z-index: 10;
+	}
+
+  &__content{
+    @include mq($dt) {
+      max-width: 70vw;
+    }
+  }
+}

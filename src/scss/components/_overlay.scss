@@ -1,0 +1,195 @@
+@use '../global/' as *;
+
+.overlay {
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.25s ease-out;
+	position: fixed;
+	inset: 0;
+	z-index: 10000000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overscroll-behavior: none;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	
+	&--top-right {
+
+		@include mq($dt) {
+			align-items: flex-start;
+			justify-content: flex-end;
+		}
+	}
+
+	&--center {
+		@include mq($dt) {
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&--bottom-right {
+		align-items: flex-end;
+		padding-bottom: 4rem;
+
+		@include mq($dt) {
+			background-color: transparent;
+			pointer-events: none !important;
+			align-items: flex-end;
+			justify-content: flex-end;
+		}
+	}
+
+	&--right {
+
+		@include mq($dt) {
+			align-items: stretch;
+			justify-content: flex-end;
+		}
+	}
+
+	&.o-show {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&__bg {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+	}
+
+	&__inner {
+		position: relative;
+		height: 100vh;
+		height: 100dvh;
+		width: 100%;
+		display: flex;
+
+		&--top-right {
+
+			@include mq($dt) {
+				width: 48rem;
+				height: 66rem;
+			}
+		}
+
+		&--center {
+			@include mq($dt) {
+				width: auto;
+				height: auto;
+			}
+		}
+
+		&--bottom-right {
+			height: auto;
+			width: calc(100% - 3.2rem);
+
+			@include mq($dt) {
+				width: 50rem;
+				height: auto;
+				right: 4rem;
+				bottom: 4rem;
+			}
+
+			.o-show & {
+				pointer-events: auto !important;
+			}
+		}
+
+		&--right {
+			@include mq($dt) {
+				width: 48rem;
+			}
+		}
+
+		&--h-auto {
+			@include mq($dt) {
+				height: auto;
+			}
+		}
+
+		&--block {
+			display: block;
+		}
+
+		&--scroll {
+			overflow: scroll;
+			overscroll-behavior: none;
+		}
+	}
+
+	&__top {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 8rem;
+	}
+
+	&__content {
+		width: 100%;
+		background-color: var(--black);
+		color: var(--white);
+		position: relative;
+
+		&--light {
+			background-color: var(--grey);
+			color: var(--black);
+		}
+
+		&--yellow {
+			background-color: var(--yellow-bg);
+			color: var(--black);
+		}
+		// padding-bottom: 3rem;
+
+		// @include mq($dt) {
+		// 	padding: 3.2rem 4rem;
+		// }
+
+		&--center {
+			@include mq($dt) {
+				width: auto;
+				height: auto;
+				padding: 10rem 0 4rem
+			}
+		}
+	}
+
+	&__close {
+		position: absolute;
+		z-index: 10;
+		top: 1.6rem;
+		right: 1.6rem;
+		color: inherit;
+		cursor: pointer;
+
+		@media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+	}
+
+	&__scroll-el {
+		
+		&.o-scroll {
+			height: 100vh;
+			height: 100dvh;
+			overflow: scroll;
+		}
+	}
+
+	&__main {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+over-lay {
+	display: flex;
+}

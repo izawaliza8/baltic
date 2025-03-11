@@ -1,0 +1,27 @@
+@use '../global/' as *;
+
+.accordion {
+  
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+
+    @include mq($dt) {
+      display: grid;
+    }
+  }
+
+  &__assets {
+    @include mq($dt) {
+      grid-column: 1 / span 5;
+    }
+  }
+
+  &__wrapper {
+    @include mq($dt) {
+      grid-column: 7 / span 6;
+    }
+  }
+}

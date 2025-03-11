@@ -1,0 +1,135 @@
+@use '../global/' as *;
+
+
+.reveal {
+  opacity: 0;
+  transition: opacity 1.2s var(--easing);
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px) scale(1.02);
+  transition: opacity 1.2s var(--easing), transform 1.2s var(--easing);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.reveal-grow {
+  transition: clip-path 1.2s var(--easing);
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  
+  &.visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+// .blob-left {
+//   left: 0;
+//   transition: left 0.8s var(--easing) .5s;
+
+//   &.visible {
+//     left: 0%;
+//   }
+// }
+
+// .blob-right {
+//   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+//   transition: clip-path 0.8s var(--easing) 1s;
+
+//   &.visible {
+//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+//   }
+// }
+
+.anim-trigger {
+
+  .reveal-child {
+    opacity: 0;
+    transition: opacity 1.2s var(--easing);
+
+    @include mq($dt) {
+
+      @for $i from 1 through 45 {
+
+        &:nth-of-type(#{$i}),
+        &:nth-child(#{$i}) {
+          transition-delay: 0.095s * $i;
+        }
+      }
+    }
+  }
+  
+  .reveal-delayed {
+    opacity: 0;
+    transition: opacity 1.2s var(--easing);
+    transition-delay: .2s;
+  }
+
+  .reveal-no-delay {
+    opacity: 0;
+    transition: opacity 1.2s var(--easing);
+  }
+
+  &.visible {
+
+    .reveal-no-delay,
+    .reveal-delayed,
+    .reveal-child {
+      opacity: 1;
+    }
+  }
+
+}
+
+// 
+// Lines animation
+// 
+
+.grow {
+  transform: scale(0);
+  transition: transform 1s ease-in-out;
+  transition-timing-function: var(--easing);
+  transform-origin: left;
+
+  @include mq($dt) {
+    transform-origin: top;
+    transition: transform 1.2s ease-in-out;
+    transition-timing-function: var(--easing);
+  }
+
+  &.visible {
+    transform: scale(1);
+  }
+}
+
+
+.grow-trigger {
+
+  .grow-child {
+    transform: scale(0);
+    transition: transform 1s ease-in-out;
+    transition-timing-function: var(--easing);
+    transform-origin: left;
+
+    @for $i from 1 through 40 {
+      &:nth-child(#{$i}) {
+        transition-delay: 0.1s * $i;
+      }
+    }
+  }
+
+  &.visible {
+
+    .grow-child {
+      transform: scale(1);
+    }
+  }
+
+}

@@ -1,0 +1,197 @@
+@use '../global/' as *;
+
+.splide {
+
+  &__arrows {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+
+  &__arrow {
+    opacity: 1;
+    height: 7rem;
+    width: 7rem;
+    border: 0;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    pointer-events: auto;
+
+    svg {
+      height: 2.5rem;
+      width: 2.5rem;
+      overflow: hidden;
+
+      path {
+        fill: var(--white);
+        transition: fill 0.2s ease-in-out;
+      }
+    }
+
+    &--prev {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &[disabled] {
+      background-color: var(--white);
+      cursor: not-allowed;
+
+      svg {
+        path {
+          fill: var(--black);
+        }
+      }
+    }
+
+    &--square,
+    &--round {
+      svg {
+        height: 100%;
+        width: 100%;
+
+        path, rect, circle {
+          transition: fill 0.2s ease-in-out;
+        }
+      }
+
+      &[disabled] {
+        svg {
+          path {
+            fill: var(--white);
+          }
+        }
+      }
+    }
+
+    &--round {
+      border-radius: 50%;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          svg {
+            path {
+              fill: var(--orange);
+            }
+            circle {
+              fill: var(--light-grey);
+            }
+          }
+        }
+      }
+    }
+
+    &--square {
+      &[disabled] {
+        pointer-events: none;
+        svg {
+          path {
+            fill: var(--black);
+          }
+
+          rect {
+            fill: var(--white);
+          }
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+
+          svg {
+            path {
+              fill: var(--orange);
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+
+  &__pagination {
+    display: flex;
+    padding: 0 2rem;
+    gap: 3rem;
+
+    @include mq($dt) {
+      padding: 0 6rem;
+    }
+
+    li {
+      flex-grow: 1;
+    }
+
+    &__page {
+      width: 100%;
+      height: 2rem;
+      background-color: transparent;
+      border: 0;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--grey);
+        transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        border-radius: 2px;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          &:after {
+            background-color: var(--black);
+          }
+        }
+      }
+
+      &.is-active {
+        &:after {
+          background-color: var(--orange);
+        }
+      }
+
+    }
+  }
+
+  &__progress {
+    background: rgba(255, 255, 255, 0.3);
+    height: 4px;
+    border-radius: 3px;
+
+    &--dark {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__progress-bar {
+    background: var(--white);
+    height: 4px;
+    transition: width 400ms ease;
+    width: 0;
+    border-radius: 3px;
+
+    &--dark {
+      background: var(--orange);
+    }
+  }
+
+}

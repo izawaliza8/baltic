@@ -1,0 +1,35 @@
+{% set scrollspeed = data.direction == 'ltr' ? 1 : -1 %}
+
+<div class="{{class}} reveal">
+
+  <sp-lide data-auto-scroll="1" class="splide text-ticker" data-splide='{
+        "type": "loop",
+        "autoWidth": true,
+        "gap": "1rem",
+        "focus": "center",
+        "pagination": false,
+        "arrows": false,
+        "drag": "free",
+        "autoScroll": {
+          "speed": {{scrollspeed}},
+          "pauseOnHover": true
+        }
+      }'>
+    <div class="splide__track">
+
+      <ul class="splide__list unstyled-list">
+        {% for item in data.items %}
+          <li class="splide__slide">
+            <a class="text-ticker__link fs-20 animated-underline" href="{{ item.link_url }}">
+              {{ item.link_label }}
+            </a>
+          </li>
+          <li class="splide__slide fs-20">
+            |
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </sp-lide>
+
+</div>

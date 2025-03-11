@@ -1,0 +1,245 @@
+@use '../global' as *;
+
+.w-100 {
+  width: 100%;
+}
+
+.dt-only {
+  display: none;
+
+  @include mq($dt) {
+    display: block;
+  }
+
+  &--flex {
+    @include mq($dt) {
+      display: flex;
+    }
+  }
+}
+
+.mob-only {
+  display: block;
+
+  @include mq($dt) {
+    display: none;
+  }
+}
+
+.unstyled-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--black, #111111);
+  cursor: pointer;
+}
+
+.unstyled-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--side-padding-mob, 1.8rem);
+  padding-left: var(--side-padding-mob, 1.8rem);
+
+  @include mq($dt) {
+    padding-right: var(--side-padding-dt, 2.4rem);
+    padding-left: var(--side-padding-dt, 2.4rem);
+  }
+
+  &--dt {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include mq($dt) {
+      padding-right: var(--side-padding-dt, 2.4rem);
+      padding-left: var(--side-padding-dt, 2.4rem);
+    }
+  }
+
+  &--mob {
+    @include mq($dt) {
+      padding-right: 0;
+      padding-left: 0;
+      max-width: 100%;
+    }
+  }
+
+  &--dt-left {
+    @include mq($dt) {
+      padding-right: 2.4rem;
+      padding-left: 2.4rem;
+      max-width: 50%;
+      margin-right: initial;
+      margin-left: auto;
+    }
+  }
+
+  &--dt-right {
+    @include mq($dt) {
+      padding-right: 2.4rem;
+      padding-left: 2.4rem;
+      max-width: 50%;
+      margin-right: auto;
+      margin-left: initial;
+    }
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--side-padding-mob);
+
+  @include mq($dt) {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--side-padding-dt);
+  }
+}
+
+.grid-wrapper-half {
+  @include mq($dt) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--side-padding-dt);
+  }
+}
+
+.mw-800 {
+  max-width: 80rem;
+}
+
+.mw-550 {
+  max-width: 55rem;
+}
+
+.mw-330 {
+  max-width: 33rem;
+}
+
+video-loop {
+  display: block;
+}
+
+.empty {
+  &:empty {
+    display: block;
+  }
+}
+
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+
+.bg-blue {
+  background-color: var(--blue, #007bff);
+}
+
+.bg-beige {
+  background-color: var(--beige, #FFFCF6);
+}
+
+.bg-orange {
+  background-color: var(--orange, #FFA500);
+}
+
+.bg-pale-orange {
+  background-color: var(--pale-orange, #FFDAB9);
+}
+
+.bg-yellow {
+  background-color: var(--yellow, #FFFF00);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue, #E8F7FF);
+}
+
+.bg-light-green {
+  background-color: var(--light-green, #E3E9E1);
+}
+
+.bg-light-green-2 {
+  background-color: var(--light-green-2, #E3E9E1);
+}
+
+.bg-light-green-3 {
+  background-color: var(--light-green-3, #DCE7E1);
+}
+
+.bg-maroon {
+  background-color: var(--maroon, #800000);
+}
+
+.bg-ochre {
+  background-color: var(--ochre, #CC7722);
+}
+
+.square-asset {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+
+  img,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+
+.clr-white {
+  color: var(--white, #ffffff);
+}
+
+.clr-blue {
+  color: var(--blue, #007bff);
+}
+
+.clr-red {
+  color: var(--red, #dc3545);
+}
+
+.clr-orange {
+  color: var(--orange, #FFA500);
+}
+
+.clr-light-orange {
+  color: var(--light-orange, #FFDAB9);
+}
+
+.hor-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--black);
+
+  &--dt {
+    display: none;
+
+    @include mq($dt) {
+      display: block;
+    }
+  }
+}

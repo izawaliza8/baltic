@@ -1,0 +1,50 @@
+@use '../global/' as *;
+
+:root {
+
+  //
+  // Fonts
+  //
+
+  --font: "Beausite Fit", sans-serif;
+  --font-mono: "Maison Neue Mono", monospace;
+
+  //
+  // Colors
+  //
+
+  --black: #000000;
+  --white: #FEFEFE;
+  --beige: #FFFCF6;
+  --beige-2: #FFF5DC;
+  --light-grey: #D8D8D8;
+  
+  --blue: #094790;
+  --orange: #D36116;
+  --light-orange: #FF9102;
+  --pale-orange: #F5EADF;
+  --green: #456F39;
+  --light-green: #C4EBD9;
+  --light-green-2: #E3E9E1;
+  --light-green-3: #DCE7E1;
+  --light-blue: #E8F7FF;
+  --ochre: #9D3A00;
+  --maroon: #55210E;
+  --yellow: #CEAF2F;
+
+
+
+
+  //
+  // Other
+  //
+  
+  --easing: cubic-bezier(.22, .61, .36, 1);
+  --max-width: 170rem;
+
+  --side-padding-mob: 1.8rem;
+  --side-padding-dt: 2.4rem;
+
+  --header-height: 5rem;
+
+}

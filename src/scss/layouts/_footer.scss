@@ -1,0 +1,191 @@
+@use '../global' as *;
+
+@keyframes scaleAnimation {
+
+  0%,
+  20%,
+  100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes blink-animation {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  @include mq($dt) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 14rem;
+    grid-template-areas:
+      "time socials"
+      "ticker ticker"
+      "copy links";
+
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include mq($dt) {
+      padding: 1rem 2rem;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14rem;
+      z-index: 90;
+      height: 100%;
+    }
+  }
+
+  &__logo-button {
+    // animation: scaleAnimation 6s infinite;
+    // overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        svg {
+          transform: translateY(calc(-100% - 1.5rem));
+        }
+      }
+    }
+
+    svg {
+      position: relative;
+      display: inline-block;
+      transition: transform .3s;
+      
+      &.footer__logo-2 {
+        display: none;
+        
+        @include mq($dt) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    @include mq($dt) {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      transition: transform .35s var(--easing);
+    }
+  }
+
+  &__time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include mq($dt) {
+      grid-area: time;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+
+    .blink {
+      animation: blink-animation 1s steps(1, end) infinite;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+
+    @include mq($dt) {
+      grid-area: socials;
+      justify-content: flex-end;
+    }
+  }
+
+  &__ticker {
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+
+    @include mq($dt) {
+      grid-area: ticker;
+    }
+  }
+
+  &__ticker-link {
+    display: flex;
+    gap: 1.3rem;
+
+    &:after {
+      bottom: 9px;
+    }
+  }
+
+  &__ticker-ranking {
+    display: flex;
+  }
+
+  &__copy-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include mq($dt) {
+      grid-area: copy;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__links-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include mq($dt) {
+      grid-area: links;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+  }
+
+  &__byline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}

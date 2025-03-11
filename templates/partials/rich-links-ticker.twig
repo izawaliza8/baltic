@@ -1,0 +1,96 @@
+{% set data = {
+  "background_color": "beige",
+	"heading": "News",
+	"direction": "ltr",
+  "items": [
+    {
+      "image": "./images/ro-1.jpg",
+      "alt": "Placeholder Image 1",
+      "date": "11/11/2024",
+			"title": "Lorem ipsum dolor sit ameagh",
+			"excerpt": "Lorem ipsum dolor sit amet, consec tetur",
+			"link_url": "#",
+			"link_label": "Read more"
+
+    },
+    {
+      "image": "./images/ro-2.jpg",
+      "alt": "Placeholder Image 2",
+      "date": "11/12/2024",
+			"title": "Lorem ipsum dolor sit ameagh",
+			"excerpt": "Lorem ipsum dolor sit amet, consec tetur",
+			"link_url": "#",
+			"link_label": "Read more"
+    },
+    {
+      "image": "./images/ro-3.jpg",
+      "alt": "Placeholder Image 3",
+      "date": "11/13/2024",
+			"title": "Lorem ipsum dolor sit ameagh",
+			"excerpt": "Lorem ipsum dolor sit amet, consec tetur",
+			"link_url": "#",
+			"link_label": "Read more"
+    },
+    {
+      "image": "./images/ro-4.jpg",
+      "alt": "Placeholder Image 4",
+      "date": "11/16/2024",
+			"title": "Lorem ipsum dolor sit ameagh",
+			"excerpt": "Lorem ipsum dolor sit amet, consec tetur",
+			"link_url": "#",
+			"link_label": "Read more"
+    }
+  ]
+} %}
+
+{% set scrollspeed = data.direction == 'ltr' ? 1 : -1 %}
+
+<section class="rlt pt-50 pb-50 pt-dt-80 pb-dt-100 bg-{{data.background_color}} {{class}}">
+	<div class="container">
+		<h2 class="fs-26 lh-1-15 fs-dt-28 upper center w-100 pb-18 pb-dt-40 reveal">{{ data.heading }}</h2>
+	</div>
+
+	<sp-lide data-auto-scroll="1" class="splide reveal" data-delay="100" data-splide='{
+											  "type": "loop",
+											  "fixedWidth": "20rem",
+											  "gap": "1.8rem",
+											  "focus": "center",
+											  "pagination": false,
+											  "arrows": false,
+											  "drag": "free",
+											  "autoScroll": {
+											    "speed": {{scrollspeed}},
+											    "pauseOnHover": true
+											  },
+											  "mediaQuery": "min",
+											  "breakpoints": {
+											    "1180": {
+											        "gap": "2.4rem"
+											    },
+													"1500": {
+											      "fixedWidth": "30rem"
+											    }
+											  }
+											}'>
+		<div class="splide__track">
+
+			<ul class="splide__list unstyled-list">
+				{% for items in data.items %}
+					<li class="splide__slide">
+						<a class="rlt__item" href="{{ items.link_url }}">
+							<div class="rlt__asset wrapper square-asset">
+								<img class="rlt__asset" src="{{ items.image }}" alt="{{ items.alt }}">
+							</div>
+							<div class="">
+								<p class="rlt__text fs-12 lh-1-2 ff-mono">{{ items.date }}</p>
+								<h3 class="fs-14 lh-1-2 rlt__text">{{ items.title }}</h3>
+							</div>
+							<p class="fs-14 lh-1-2 ff-mono rlt__text">{{ items.excerpt }}</p>
+							<div class="fs-14 lh-1-2 ff-mono rlt__text rlt__rm">{{ items.link_label }}</div>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</sp-lide>
+</section>

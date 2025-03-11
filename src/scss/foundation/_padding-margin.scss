@@ -1,0 +1,56 @@
+@use '../global' as *;
+
+$spacing: (
+	'0': 0,
+	'10': 1rem,
+	'15': 1.5rem,
+	'18': 1.8rem,
+	'20': 2rem,
+	'24': 2.4rem,
+	'32': 3.2rem,
+	'40': 4rem,
+	'50': 5rem,
+	'60': 6rem,
+	'80': 8rem,
+	'100': 10rem,
+	'150': 15rem,
+	'200': 20rem,
+);
+
+@each $key, $value in $spacing {
+	.pt-#{$key} {
+		padding-top: $value;
+	}
+	.pb-#{$key} {
+		padding-bottom: $value;
+	}
+	.mt-#{$key} {
+		margin-top: $value;
+	}
+	.mb-#{$key} {
+		margin-bottom: $value;
+	}
+}
+
+@each $key, $value in $spacing {
+	.pt-dt-#{$key} {
+		@include mq($dt) {
+			padding-top: $value;
+		}
+	}
+	.pb-dt-#{$key} {
+		@include mq($dt) {
+			padding-bottom: $value;
+		}
+	}
+	.mt-dt-#{$key} {
+		@include mq($dt) {
+			margin-top: $value;
+		}
+	}
+	.mb-dt-#{$key} {
+		@include mq($dt) {
+			margin-bottom: $value;
+		}
+	}
+}

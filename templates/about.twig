@@ -1,0 +1,114 @@
+{% set about_data = {
+    "block_1": {
+      "size": "l",
+      "assets": [
+        {
+          "image": "./images/ro-4.jpg",
+          "alt": "Example Image"
+        },
+        {
+          "image": "./images/ro-2.jpg",
+          "alt": "Example Image"
+        }
+      ]
+    },
+    "block_2": {
+      "title": "Sustainbility Credentials",
+      "text_html": "
+      <p>
+      Experience our selection of event menus; a delightful showcase of Hong Kong’s rich flavours with a perfect blend of dishes that will captivate your guests and create unforgettable memories. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue.
+      </p>
+      <p>
+      Experience our selection of event menus; a delightful showcase of Hong Kong’s rich flavours with a perfect blend of dishes that will captivate your guests and create unforgettable memories. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue.
+      </p>",
+      "assets": [
+        {
+          "image": "./images/ro-1.jpg",
+          "alt": "Placeholder Image 1"
+        },
+        {
+          "image": "./images/ro-2.jpg",
+          "alt": "Placeholder Image 2"
+        }
+      ],
+      "link": {
+        "url": "#",
+        "text": "Enquire now"
+      },
+      "flip_mobile": true
+    },
+    "block_3": {
+      "title": "Our curated season menus",
+      "text": "Experience our selection of event menus; a delightful showcase of Hong Kong’s rich flavours with a perfect blend of dishes that will captivate your guests and create unforgettable memories. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue.",
+      "image": "./images/ro-2.jpg",
+      "alt": "Placeholder Image 1",
+      "links": [
+        {
+        "url": "#",
+        "text": "Enquire now"
+        },
+        {
+          "url": "#",
+          "text": "View menus"
+        },  
+      ],
+    },
+    "text_block_1": {
+      "title": "Our curated season menus",
+      "big_text_html": "<p>Experience our selection of event menus; a delightful showcase of Hong Kong’s rich flavours with a perfect blend of dishes that will captivate your guests and create unforgettable memories. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta </p> 
+      <p>felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue.</p>",
+    },
+    "image_block_1": {
+      "size": "s",
+      "assets": [
+        {
+          "image": "./images/ro-4.jpg",
+          "alt": "Example Image"
+        },
+        {
+          "image": "./images/ro-2.jpg",
+          "alt": "Example Image"
+        }
+      ]
+    },
+    "text_block_2": {
+      "small_text_html": "<p>Farm-to-table concept, micro-herbs are grown in-house and sustainable produce is sourced from local organic farms. The tasting menus showcase deceptively simple dishes that burst with flavour and amazing textures, a nod to the chef’s philosophy and ethos. The bar serves seasonal cocktails, perfect as pre- or post-dinner drinks and also offers enticing non-alcoholic drink-food pairing.</p>",
+      "mono": true,
+      "link": {
+        "url": "#",
+        "text": "CTA"
+      },
+    },
+  }
+%}
+
+{% extends './base.twig' %}
+
+{% block body_class %}about-page bg-light-blue{% endblock %}
+
+{% block header %}
+	{% include './partials/header.twig' %}
+{% endblock %}
+
+{% block content %}
+    {% include './partials/single-asset.twig' with {"data": about_data.block_1, "class": "pt-20 pb-20"} %}
+
+    <div class="pb-50 pt-dt-50 pb-dt-80">
+      {% include './partials/text-with-image.twig' with {"data": about_data.block_2} %}
+    </div>
+
+    {% include './partials/image-ticker.twig' with {"class" : "pb-60 pb-dt-100"} %}
+
+    {% include './partials/text.twig' with {"data": about_data.text_block_1, "class": "pb-40 pb-dt-50"} %}
+
+    {% include './partials/single-asset.twig' with {"data": about_data.image_block_1, "class" : "pb-20"} %}
+
+    {% include './partials/text.twig' with {"data": about_data.text_block_2, "class": "pb-100"} %}
+
+    {# {% include './partials/bottom-blob-svg.twig' %} #}
+
+{% endblock %}
+
+{% block footer %}
+	{% include './partials/footer.twig' %}
+{% endblock %}

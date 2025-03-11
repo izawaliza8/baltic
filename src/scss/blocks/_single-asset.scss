@@ -1,0 +1,33 @@
+@use '../global/' as *;
+
+.sa {
+
+  &__asset {
+    width: 100%;
+    height: auto;
+
+    &--s {
+      grid-column: span 4;
+
+      @include mq($dt) {
+        grid-column: 3 / span 8;
+      }
+    }
+
+    &--m {
+      grid-column: span 4;
+
+      @include mq($dt) {
+        grid-column: 2 / span 10;
+      }
+    }
+
+    &--l {
+      grid-column: span 4;
+
+      @include mq($dt) {
+        grid-column: 1 / span 12;
+      }
+    }
+  }
+}

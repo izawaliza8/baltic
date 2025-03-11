@@ -1,0 +1,39 @@
+<pop-up id="{{data.id}}">
+	<dialog class="pop-up bg-{{data.bg_color}} pt-10 pb-50 pt-dt-80 pb-dt-40" role="dialog" aria-modal="true">
+
+		<button data-close-btn type="button" class="pop-up__close unstyled-button">
+			<span class="visually-hidden">Close</span>
+			<svg width="38" height="37" viewbox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect width="48" height="3" transform="matrix(-0.707107 0.707107 0.707107 0.707107 34.9102 0.468781)" fill="black"/>
+				<rect x="3.08984" y="0.468781" width="48" height="3" transform="rotate(45 3.08984 0.468781)" fill="black"/>
+			</svg>
+		</button>
+
+		<div class="pop-up__inner pop-up__content container grid-wrapper">
+
+			<simple-carousel class="pop-up__assets">
+				{% for asset in data.assets %}
+					{% if asset.video %}
+						<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+					{% else %}
+						<img src="{{ asset.image }}" alt="{{ asset.alt }}" data-asset>
+					{% endif %}
+				{% endfor %}
+			</simple-carousel>
+
+			<div class="pop-up__texts ">
+				{% for item in data.items %}
+					<div class="pop-up__text-wrapper grid-wrapper-half">
+						<h3 class="pop-up__title fs-12 fs-dt-14 ff-mono pb-10 upper">
+							{{item.title}}
+						</h3>
+						<div class="pop-up__text fs-14 fs-dt-16 wysiwyg">
+							{{item.text_html}}
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</dialog>
+</pop-up>

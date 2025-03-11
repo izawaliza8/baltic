@@ -1,0 +1,16 @@
+{% set container_class = data.size == 's' ? 'container container--dt' : '' %}
+{% set container_class = data.size == 'm' ? 'container ' : '' %}
+{% set container_class = data.size == 'l' ? 'container' : '' %}
+<div class="sa {{class}} reveal">
+	<div class="sa__container grid-wrapper {{container_class}}">
+		<simple-carousel class="sa__asset sa__asset--{{data.size}}">
+			{% for asset in data.assets %}
+				{% if asset.video %}
+					<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+				{% else %}
+					<img src="{{ asset.image }}" alt="{{ asset.alt }}" data-asset>
+				{% endif %}
+			{% endfor %}
+		</simple-carousel>
+	</div>
+</div>

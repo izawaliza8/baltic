@@ -1,0 +1,55 @@
+{% set data = {
+  "assets": [
+    {
+      "video": "https://sr-videos.eu-central-1.linodeobjects.com/LEnclume_Aulis_Cartmel_small.mp4",
+      "alt": "Placeholder Image 1"
+    },
+    {
+      "image": "./images/ro-4.jpg",
+      "alt": "Placeholder Image 2"
+    }
+  ],
+	"title": "Contact details",
+	"text_1_html": "<p>Experience our selection of event menus; a delightful showcase of Hong Kong’s rich flavours with a perfect blend of dishes that will captivate your guests and create unforgettable memories. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue.</p>",
+	"title_2": "Address",
+	"text_2_html": "<p>Shop 402 - 403, 4/F., <br/>
+Lee Garden One, 33 Hysan Avenue, Causeway Bay <br/>
+Hong Kong</p>",
+	"title_3": "Contact",
+	"text_3_html": "<p>Our reservations office is open Monday to Friday from 8.30am to 6.00pm. Please email us and we will respond to you as quickly as we can.<br/>
++852 2817 8383</p>",
+	"button": {
+		"url": "#",
+		"text": "BOOK A TABLE"
+	},
+
+} %}
+
+<div class="ct pt-20 pb-32 pt-dt-60 pb-dt-60 bg-maroon clr-white">
+	<div class="ct__wrapper container grid-wrapper">
+		<simple-carousel class="ct__asset reveal" data-delay="200">
+			{% for asset in data.assets %}
+				{% if asset.video %}
+					<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+				{% else %}
+					<img src="{{ asset.image }}" alt="{{ asset.alt }}" data-asset>
+				{% endif %}
+			{% endfor %}
+		</simple-carousel>
+		<div class="ct__content pb-10 anim-trigger" data-delay="400">
+			<h2 class="ct__title fs-26 fs-dt-28 reveal-child">{{data.title}}</h2>
+			<div class="ct__text fs-dt-20 wysiwyg pb-32 reveal-child">{{data.text_1_html}}</div>
+			<div class="ct__text ff-mono fs-16 lh-1-3 wysiwyg pb-32 pb-dt-0 reveal-child">
+				<h3 class="ff-mono pb-10 fs-18 upper">{{data.title_2}}</h3>
+				{{data.text_2_html}}
+			</div>
+			<div class="ct__text ff-mono fs-16 lh-1-3 wysiwyg pb-32 reveal-child">
+				<h3 class="ff-mono pb-10 fs-18 upper">{{data.title_3}}</h3>
+				{{data.text_3_html}}
+			</div>
+			<div class="reveal-child w-100">
+				<button class="btn btn--white btn--maroon-h w-100" type="button">{{data.button.text}}</button>
+			</div>
+		</div>
+	</div>
+</div>

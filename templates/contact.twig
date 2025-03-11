@@ -1,0 +1,88 @@
+{% set contact_data = {
+  "ticker": {
+      "direction": "ltr",
+      "items": [
+      {
+        "link_url": "#",
+        "link_label": "Simon Rogan"
+      },
+      {
+        "link_url": "#",
+        "link_label": "L’Enclume"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Rogan & Co"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Aulis London"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Roganic HK"
+      },
+      {
+        "link_url": "#",
+        "link_label": "The Baker & The Bottleman"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Our Shop"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Aulis Cartmel"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Aulis HK"
+      },
+      {
+        "link_url": "#",
+        "link_label": "ION HARBOUR BY SIMON ROGAN"
+      }
+    ] 
+    },
+    "text_with_image": {
+      "title": "Careers",
+      "text_html": "<p>Joining us will enable you to work in our acclaimed restaurants with our friendly and welcoming teams. No matter where you start, there will always be vast scope for learning and career development. We are proud to have many managers and senior chefs come through from junior positions within our teams.</p>",
+      "assets": [
+        {
+          "image": "./images/ro-1.jpg",
+          "alt": "Placeholder Image 1"
+        },
+        {
+          "image": "./images/ro-2.jpg",
+          "alt": "Placeholder Image 2"
+        }
+      ],
+      "links": [
+        {
+        "url": "#",
+        "text": "VIEW CAREERS"
+        }
+      ],
+    }
+} %}
+
+{% extends './base.twig' %}
+
+{% block header %}
+	{% include './partials/header.twig' %}
+{% endblock %}
+
+{% block content %}
+
+	{% include './partials/contact-top.twig' %}
+
+	{% include './partials/text-ticker.twig' with {"data": contact_data.ticker, "class": "pt-32 pb-32 pt-dt-60 pb-dt-60"} %}
+
+  {% include './partials/text-with-image.twig' with {"data": contact_data.text_with_image, "class": "pb-32 pb-dt-60"} %}
+
+
+{% endblock %}
+
+{% block footer %}
+	{% include './partials/footer.twig' %}
+{% endblock %}

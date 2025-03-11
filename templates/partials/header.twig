@@ -1,0 +1,181 @@
+{% set nav = {
+  "items_1": [
+    {
+      "title": "Home",
+      "url": "/",
+      "class": "mob-only"
+    },
+    {
+      "title": "MENUS",
+      "url": "/menus"
+    },
+    {
+      "title": "About",
+      "url": "/about"
+    },
+    {
+      "title": "FAQS",
+      "url": "/faqs"
+    },
+    {
+      "title": "EVENTS",
+      "url": "/events"
+    },
+  ],
+  "items_2": [
+    {
+      "title": "NEWS",
+      "url": "/news"
+    },
+    {
+      "title": "CONTACT",
+      "url": "/contact"
+    },
+    {
+      "title": "SHOP",
+      "url": "#"
+    },
+    {
+      "title": "RESERVATIONS",
+      "popup": "#booking"
+    },
+  ]
+} 
+%}
+
+{# {% set announcement_bar = {
+    "direction": "ltr",
+    "background": "yellow",
+    "items": [
+      {
+        "link_url": "#",
+        "link_label": "Simon Rogan",
+        "ranking": 3
+      },
+      {
+        "link_url": "#",
+        "link_label": "L’Enclume"
+      },
+      {
+        "link_url": "#",
+        "link_label": "Rogan & Co",
+        "ranking": 1
+      }
+    ] 
+} %} #}
+
+<header-el class="header">
+
+	{% if announcement_bar is defined %}
+		{% set scrollspeed = announcement_bar.direction == 'ltr' ? 1 : -1 %}
+		{% set bg_col = announcement_bar.background != empty ? announcement_bar.background : "orange" %}
+
+		<sp-lide data-auto-scroll="1" class="splide header__ticker bg-{{bg_col}}" data-splide='{
+				                      "type": "loop",
+				                      "autoWidth": true,
+				                      "gap": "3rem",
+				                      "focus": "center",
+				                      "pagination": false,
+				                      "arrows": false,
+				                      "drag": "free",
+				                      "autoScroll": {
+				                        "speed": {{scrollspeed}},
+				                        "pauseOnHover": true
+				                      },
+				                      "mediaQuery": "min",
+				                      "breakpoints": {
+				                        "1180": {
+				                            "gap": "2.4rem"
+				                        }
+				                      }
+				                    }'>
+			<div class="splide__track">
+				<ul class="splide__list unstyled-list">
+
+					{% for item in announcement_bar.items %}
+						<li class="splide__slide">
+							<a class="header__ticker-link fs-16 upper" href="{{ item.link_url }}">
+								{{ item.link_label }}
+							</a>
+						</li>
+					{% endfor %}
+					{% for item in announcement_bar.items %}
+						<li class="splide__slide">
+							<a class="header__ticker-link fs-16 upper" href="{{ item.link_url }}">
+								{{ item.link_label }}
+							</a>
+						</li>
+					{% endfor %}
+					{% for item in announcement_bar.items %}
+						<li class="splide__slide">
+							<a class="header__ticker-link fs-16 upper" href="{{ item.link_url }}">
+								{{ item.link_label }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</sp-lide>
+	{% endif %}
+
+	<div class="header__bar container pt-10 pb-10">
+
+		{% if current_page == 'home' %}
+			<h1 class="header__logo-wrapper reveal">
+				<span class="visually-hidden">Roganic logo</span>
+				{% include "./logo-full-svg.twig" with { "class": "header__logo" }  %}
+			</h1>
+		{% else %}
+			<a href="/" class="header__logo-wrapper reveal">
+				<span class="visually-hidden">Roganic logo</span>
+				{% include "./logo-full-svg.twig" with { "class": "header__logo" }  %}
+			</a>
+		{% endif %}
+
+		<button class="header__burger mob-only unstyled-button reveal" data-delay="200" data-burger>
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+
+		<nav class="header__nav container pt-80 pb-15 pt-dt-10 pb-dt-10">
+
+			<div class="header__nav-lists reveal" data-delay="200">
+
+				<ul class="header__nav-list unstyled-list">
+					{% for item in nav.items_1 %}
+						<li class="header__nav-item upper ff-mono fs-25 fs-dt-14 {{item.class}}">
+							{% if item.url %}
+								<a href="{{ item.url }}" class="header__nav-link">{{ item.title }}</a>
+							{% elseif item.popup %}
+								<popup-opener data-pop-id="{{item.popup}}">
+									<button type="button" class="header__nav-link unstyled-button">{{ item.title }}</button>
+								</popup-opener>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="header__nav-list unstyled-list">
+					{% for item in nav.items_2 %}
+						<li class="header__nav-item upper ff-mono fs-25 fs-dt-14 {{item.class}}">
+							{% if item.url %}
+								<a href="{{ item.url }}" class="header__nav-link">{{ item.title }}</a>
+							{% elseif item.popup %}
+								<popup-opener data-pop-id="{{item.popup}}">
+									<button type="button" class="header__nav-link unstyled-button">{{ item.title }}</button>
+								</popup-opener>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+
+			<div class="mob-only">
+				{% include "./logo-svg.twig" with { "class": "header__nav-logo" } %}
+			</div>
+		</nav>
+
+	</div>
+
+</header-el>

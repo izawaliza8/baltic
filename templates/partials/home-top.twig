@@ -1,0 +1,48 @@
+{% set assets = [
+		{
+			"image": "./images/ro-1.jpg",
+			"alt": "Example Image"
+		},
+		{
+			"video": "https://sr-videos.eu-central-1.linodeobjects.com/LEnclume_Aulis_Cartmel_small.mp4",
+			"alt": "Example Image"
+		}
+] %}
+
+{% set data = {
+	"text": "Farm-to-table concept, micro-herbs are grown in-house and sustainable produce is sourced from local organic farms. The tasting menus showcase deceptively simple dishes that burst with flavour and amazing textures, a nod to the chef’s philosophy and ethos. The bar serves seasonal cocktails, perfect as pre- or post-dinner drinks and also offers enticing non-alcoholic drink-food pairing.",
+	"button": {
+		"text": "Book a table",
+		"popup": "#booking"
+	}
+} %}
+
+<section class="ht bg-blue clr-white">
+	<div class="ht__inner container pt-50 pb-50">
+		<div class="ht__asset-wrapper mw-800 reveal" data-delay="200" data-root-margin="0">
+			<simple-carousel class="ht__asset-wrapper mw-800 ">
+				{% for asset in assets %}
+					{% if asset.video %}
+						<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+					{% else %}
+						<img src="{{ asset.image }}" alt="{{ asset.alt }}" class="ht__asset" data-asset>
+					{% endif %}
+				{% endfor %}
+			</simple-carousel>
+		</div>
+		<p class="lh-1-2 mw-800 fs-dt-20 reveal" data-delay="400" data-root-margin="0">
+			{{ data.text }}
+		</p>
+		{% if data.button.url %}
+			<a href="{{ data.url }}" class="unstyled-button btn btn--white btn--wide reveal" data-delay="600" data-root-margin="0">
+				{{ data.button.text }}
+			</a>
+		{% elseif data.button.popup %}
+			<popup-opener data-pop-id="{{data.button.popup}}">
+				<button type="button" class="unstyled-button btn btn--white btn--wide reveal" data-delay="600" data-root-margin="0">
+					{{ data.button.text }}
+				</button>
+			</popup-opener>
+		{% endif %}
+	</div>
+</section>
