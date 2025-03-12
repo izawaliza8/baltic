@@ -1,37 +1,3 @@
-{% set popup_info = {
-  "id": "info-popup",
-  "bg_color": "orange",
-  "assets": [
-    {
-      "image": "./images/ro-3.jpg",
-      "alt": "Placeholder Image 1"
-    },
-    {
-      "image": "./images/ro-2.jpg",
-      "alt": "Placeholder Image 2"
-    },
-    {
-      "image": "./images/ro-4.jpg",
-      "alt": "Placeholder Image 3"
-    }
-  ],
-  "items": [
-    {
-      "title": "2011",
-      "text_html": "Roganic Marylebone opened. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-    },
-    {
-      "title": "2015",
-      "text_html": "Roganic Marylebone opened. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-    },
-    {
-      "title": "2018",
-      "text_html": "Roganic Marylebone opened. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-    },
-
-  ]
-} %}
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -39,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="robots" content="noindex, nofollow">
 		<title>
-			{% block title %}Roganic
+			{% block title %}Kinn Collective
 			{% endblock %}
 		</title>
 		<link rel="stylesheet" href="/dist/css/main.css">
@@ -58,72 +24,8 @@
 				{% endblock %}
 			</footer>
 
-			<pop-up id="booking">
-				<dialog class="booking-pop bg-light-green-3 pt-80 pb-20 pt-dt-80 pb-dt-40" role="dialog" aria-modal="true" aria-labelledby="booking-title">
 
-					<button data-close-btn type="button" class="booking-pop__close unstyled-button">
-						<span class="visually-hidden">Close</span>
-						<svg width="38" height="37" viewbox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<rect width="48" height="3" transform="matrix(-0.707107 0.707107 0.707107 0.707107 34.9102 0.468781)" fill="black"/>
-							<rect x="3.08984" y="0.468781" width="48" height="3" transform="rotate(45 3.08984 0.468781)" fill="black"/>
-						</svg>
-					</button>
-
-					{% include "./partials/logo-full-svg.twig" with { "class": "booking-pop__logo" }  %}
-
-					<div class="booking-pop__inner container pop-up__content">
-
-						<h2 class="fs-26 fs-dt-28 upper">
-							Reserver a table
-						</h2>
-
-						<div class="ff-mono wysiwyg">
-							<p>Please note: We require a valid credit card to guarantee your reservation with us. No fee will be charged, unless there is a late cancellation or no-show. See T&Cs for full details.
-							</p>
-							<p>
-								We offer a fixed price Sed posuere consectetur est at lobortis.Sed posuere consectetur est at lobortis. There is also a weekly set lunchtime menu available Monday to Friday, from £48*.
-							</p>
-							<p>
-								Between Monday 18th November 2024 and Friday 3rd January 2025, we will be offering a festive set-lunch menu, priced at £55 for two-courses and £65 for three-courses.
-							</p>
-							<p>
-								Sed posuere consectetur est at lobortis. *Pricing is subject to change
-							</p>
-						</div>
-
-						<popup-opener data-pop-id="#booking-iframe">
-							<button type="button" class="unstyled-button btn btn--medium booking-pop__button">
-								Book a table
-							</button>
-						</popup-opener>
-
-					</div>
-				</dialog>
-			</pop-up>
-
-			<pop-up id="booking-iframe">
-				<dialog class="booking-pop bg-light-green-3 pt-80 pb-20 pt-dt-80 pb-dt-40" role="dialog" aria-modal="true" aria-labelledby="booking-title">
-
-					<button data-close-btn type="button" class="booking-pop__close unstyled-button">
-						<span class="visually-hidden">Close</span>
-						<svg width="38" height="37" viewbox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<rect width="48" height="3" transform="matrix(-0.707107 0.707107 0.707107 0.707107 34.9102 0.468781)" fill="black"/>
-							<rect x="3.08984" y="0.468781" width="48" height="3" transform="rotate(45 3.08984 0.468781)" fill="black"/>
-						</svg>
-					</button>
-
-					{% include "./partials/logo-full-svg.twig" with { "class": "booking-pop__logo" }  %}
-
-					<div class="booking-pop__iframe-container container pop-up__content">
-						<div class="booking-pop__iframe"></div>
-					</div>
-
-				</dialog>
-			</pop-up>
-
-			{% include './partials/pop-up.twig' with {"data": popup_info} %}
-
-			<intro-anim>
+			{# <intro-anim>
 				<section class="intro-anim">
 					<div class="intro-anim__inner container pt-32 pb-32">
 
@@ -150,7 +52,7 @@
 						</div>
 					</div>
 				</section>
-			</intro-anim>
+			</intro-anim> #}
 		</body>
-		<script src="/dist/js/intro-anim.js"></script>
+		{# <script src="/dist/js/intro-anim.js"></script> #}
 </html>

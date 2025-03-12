@@ -85,7 +85,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Roganic',
+      title: 'Kinn Collective',
       template: './templates/home.twig',
       inject: true
     }),

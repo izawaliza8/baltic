@@ -1,21 +1,42 @@
 @font-face {
-  font-family: "Beausite Fit";
+  font-family: "Wagram";
   src:
-    url("../../assets/fonts/BeausiteFitWeb-Regular.woff2") format("wof2"),
-    url("../../assets/fonts/BeausiteFitWeb-Regular.woff") format("woff");
+    url("../../assets/fonts/00Wagram-Regular.woff2") format("wof2"),
+    url("../../assets/fonts/00Wagram-Regular.woff") format("woff");
+  font-display: block;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// wagram italic
+@font-face {
+  font-family: "Wagram";
+  src:
+    url("../../assets/fonts/00Wagram-Italic.woff2") format("wof2"),
+    url("../../assets/fonts/00Wagram-Italic.woff") format("woff");
+  font-display: block;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Wagram Mono";
+  src:
+    url("../../assets/fonts/00WagramMono-Regular.woff2") format("wof2"),
+    url("../../assets/fonts/00WagramMono-Regular.woff") format("woff");
   font-display: block;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Maison Neue Mono";
+  font-family: "Wagram Mono";
   src:
-    url("../../assets/fonts/MaisonNeueMono-Regular.woff2") format("wof2"),
-    url("../../assets/fonts/MaisonNeueMono-Regular.woff") format("woff");
+    url("../../assets/fonts/00WagramMono-Italic.woff2") format("wof2"),
+    url("../../assets/fonts/00WagramMono-Italic.woff") format("woff");
   font-display: block;
   font-weight: 400;
-  font-style: normal;
+  font-style: italic;
 }
 
 

@@ -6,22 +6,29 @@
   // Fonts
   //
 
-  --font: "Beausite Fit", sans-serif;
-  --font-mono: "Maison Neue Mono", monospace;
+  --font: "Wagram", serif;
+  --font-mono: "Wagram Mono", monospace;
 
   //
   // Colors
   //
 
-  --black: #000000;
+  --black: #1A1A1A;
   --white: #FEFEFE;
-  --beige: #FFFCF6;
-  --beige-2: #FFF5DC;
+  --beige: #E7D8C8;
   --light-grey: #D8D8D8;
-  
-  --blue: #094790;
-  --orange: #D36116;
-  --light-orange: #FF9102;
+
+  --blue: #4E758B;
+  --orange: #CD5E30;
+  --pale-yellow: #DFCD9D;
+  --yellow: #D69626;
+  --dark-grey: #2E2F33;
+  --brown: #754328;
+
+
+
+
+  // TODO: ROGANIC REMOVE
   --pale-orange: #F5EADF;
   --green: #456F39;
   --light-green: #C4EBD9;
@@ -38,13 +45,13 @@
   //
   // Other
   //
-  
+
   --easing: cubic-bezier(.22, .61, .36, 1);
   --max-width: 170rem;
 
-  --side-padding-mob: 1.8rem;
+  --side-padding-mob: 1.6rem;
   --side-padding-dt: 2.4rem;
 
-  --header-height: 5rem;
+  --header-height: 6rem;
 
 }
