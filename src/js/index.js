@@ -1,4 +1,6 @@
 import './reveal-on-scroll';
+import './header-footer';
+
 
 import './web-comps/header-el';
 import './web-comps/splide';

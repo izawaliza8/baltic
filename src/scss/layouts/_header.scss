@@ -9,6 +9,7 @@
   z-index: 90000;
   transition: transform 0.35s var(--easing);
 
+  .hide-nav &,
   .start-intro & {
     transform: translateY(-100%);
   }
@@ -38,6 +39,7 @@
       opacity: 1;
     }
   }
+  
 
   &__bar {
     display: flex;
