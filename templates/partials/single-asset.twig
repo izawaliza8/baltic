@@ -1,16 +1,16 @@
-{% set container_class = data.size == 's' ? 'container container--dt' : '' %}
-{% set container_class = data.size == 'm' ? 'container ' : '' %}
-{% set container_class = data.size == 'l' ? 'container' : '' %}
-<div class="sa {{class}} reveal">
-	<div class="sa__container grid-wrapper {{container_class}}">
-		<simple-carousel class="sa__asset sa__asset--{{data.size}}">
-			{% for asset in data.assets %}
-				{% if asset.video %}
-					<video src="{{ asset.video }}" alt="{{ asset.alt }}" data-asset muted playsinline></video>
+<div class="sa anim-trigger">
+	<div class="sa__container container container--dt">
+		<div class="sa__content">
+			<div class="sa__asset-wrapper mb-5 mb-dt-19">
+				{% if data.video %}
+					<video src="{{ data.video }}" alt="{{ data.alt }}" muted playsinline></video>
 				{% else %}
-					<img src="{{ asset.image }}" alt="{{ asset.alt }}" data-asset>
+					<img src="{{ data.image }}" alt="{{ data.alt }}">
 				{% endif %}
-			{% endfor %}
-		</simple-carousel>
+			</div>
+			{% if data.caption %}
+				<div class="sa__caption fs-10 fs-dt-12 lh-1-2 pt-dt-10 container container--mob">{{ data.caption }}</div>
+			{% endif %}
+		</div>
 	</div>
 </div>

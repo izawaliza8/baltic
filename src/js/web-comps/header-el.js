@@ -19,13 +19,12 @@ class HeaderEl extends HTMLElement {
       }
     });
 
-    this.open();
 
-    // this.addEventListener('focusout', (e) => {
-    //   if (!this.contains(e.relatedTarget)) {
-    //     this.close();
-    //   }
-    // });
+    this.addEventListener('focusout', (e) => {
+      if (!this.contains(e.relatedTarget)) {
+        this.close();
+      }
+    });
 
   }
 

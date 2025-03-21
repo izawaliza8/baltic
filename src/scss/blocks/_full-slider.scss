@@ -1,0 +1,74 @@
+@use '../global/' as *;
+
+.fs {
+
+  &__slide {
+    width: 100%;
+    position: relative;
+  }
+
+  &__image {
+    height: 92vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    @include mq($dt) {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1.6rem;
+      align-items: end;
+      padding-bottom: 3.6rem;
+    }
+  }
+
+  &__text {
+    @include mq($dt) {
+      grid-column: 1 / span 5;
+      padding-right: 2.4rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include mq($dt) {
+      grid-column: 6 / span 2;
+    }
+
+    svg {
+      @include mq($dt) {
+        height: 2.3rem;
+        width: auto;
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    gap: .2rem;
+  }
+
+  &__info {
+    @include mq($dt) {
+      grid-column: 8 / span 5;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+  }
+} 

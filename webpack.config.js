@@ -86,7 +86,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Kinn Collective',
-      template: './templates/home.twig',
+      template: './templates/index.twig',
       inject: true
     }),
     new HtmlWebpackPlugin({
@@ -95,23 +95,8 @@ module.exports = {
       inject: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'events.html',
-      template: './templates/events.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'text-page.html',
-      template: './templates/text-page.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'news.html',
-      template: './templates/news.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'faqs.html',
-      template: './templates/faqs.twig',
+      filename: 'collective.html',
+      template: './templates/collective.twig',
       inject: true
     }),
     new HtmlWebpackPlugin({
@@ -120,10 +105,26 @@ module.exports = {
       inject: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'menus.html',
-      template: './templates/menus.twig',
+      filename: 'estelle-manor.html',
+      template: './templates/estelle-manor.twig',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      filename: 'florentine-kitchen-knives.html',
+      template: './templates/florentine-kitchen-knives.twig',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'projects.html',
+      template: './templates/projects.twig',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'services.html',
+      template: './templates/services.twig',
+      inject: true
+    }),
+    
     new MiniCssExtractPlugin({
       filename: 'css/[name].css' // Remove contenthash for development
     }),
@@ -154,12 +155,15 @@ module.exports = {
       rewrites: [
         { from: /^\/$/, to: '/index.html' },
         { from: /^\/about/, to: '/about.html' },
-        { from: /^\/events/, to: '/events.html' },
-        { from: /^\/text-page/, to: '/text-page.html' },
+        { from: /^\/collective/, to: '/collective.html' },
         { from: /^\/news/, to: '/news.html' },
         { from: /^\/faqs/, to: '/faqs.html' },
         { from: /^\/contact/, to: '/contact.html' },
-        { from: /^\/menus/, to: '/menus.html' },
+        { from: /^\/estelle-manor/, to: '/estelle-manor.html' },
+        { from: /^\/florentine-kitchen-knives/, to: '/florentine-kitchen-knives.html' },
+        { from: /^\/projects/, to: '/projects.html' },
+        { from: /^\/services/, to: '/services.html' },
+  
         // Add more routes as needed
       ],
     },

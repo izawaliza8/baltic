@@ -1,0 +1,20 @@
+<div class="ar anim-trigger">
+	<div class="ar__container container">
+		<div class="ar__content">
+			{% for item in data %}
+				<div class="ar__item">
+					<div class="ar__asset-wrapper mb-5 mb-dt-19">
+						{% if item.video %}
+							<video src="{{ item.video }}" alt="{{ item.alt }}" muted playsinline></video>
+						{% else %}
+							<img src="{{ item.image }}" alt="{{ item.alt }}">
+						{% endif %}
+					</div>
+					{% if item.caption %}
+						<div class="sa__caption fs-10 fs-dt-12 lh-1-2">{{ item.caption }}</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+@use '../global/' as *;
+
+.tas {
+
+  &__text {
+    @include mq($dt) {
+      width: 50%;
+      margin-left: 0;
+      margin-bottom: 20vh;
+    }
+  }
+
+  &__assets-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @include mq($dt) {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 0 1.4rem;
+    }
+  }
+
+  &__link {
+    &--1 {
+      padding-left: var(--side-padding-mob);
+
+      @include mq($dt) {
+        grid-column: 7 / span 6;
+        grid-row: 1;
+      }
+    }
+
+    &--2 {
+      width: 75%;
+
+      @include mq($dt) {
+        grid-column: 1 / span 4;
+        grid-row: 1;
+        margin-top: 20vw;
+      }
+    }
+
+    &--3 {
+      @include mq($dt) {
+        grid-column: 6 / span 6;
+        grid-row: 1;
+        transform: translateY(-5vw);
+      }
+    }
+
+    img,
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__asset-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include mq($dt) {
+      padding-top: .75rem;
+    }
+
+    &--1 {
+      padding-right: var(--side-padding-mob);
+    }
+
+    &--2 {
+      padding-left: var(--side-padding-mob);
+    }
+  }
+
+  &__content-row {
+    @include mq($dt) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0 1.4rem;
+      align-items: center;
+    }
+  }
+
+  &__text-2 {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    @include mq($dt) {
+      grid-column: 1 / span 4;
+      color: var(--orange);
+    }
+  }
+
+}

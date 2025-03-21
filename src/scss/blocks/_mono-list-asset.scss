@@ -1,0 +1,62 @@
+@use '../global/' as *;
+
+.mono-list-asset {
+
+  &__content {
+    @include mq($dt) {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: start;
+      gap: 1.4rem;
+    }
+  }
+
+  &__asset-text-wrapper {
+    @include mq($dt) {
+      grid-column: 7 / span 6;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 4rem 1.4rem;
+      align-self: stretch;
+    }
+  }
+
+  &__asset {
+    width: 100%;
+
+    @include mq($dt) {
+      grid-column: 1 /span 6;
+
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__asset-text {
+    @include mq($dt) {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__text-list {
+    @include mq($dt) {
+      grid-column: 2 / span 4;
+      grid-row: 1;
+    }
+  }
+
+  &__text {
+    border-bottom: 1px solid var(--black);
+
+    &:first-child {
+      border-top: 1px solid var(--black);
+    }
+
+  }
+
+
+}

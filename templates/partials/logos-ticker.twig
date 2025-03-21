@@ -2,6 +2,10 @@
 
 <section class="lt reveal">
 
+  {% if data.heading is not empty %}
+    <h2 class="lt__heading fs-16 fs-dt-18  container pb-32 upper">{{data.heading}}</h2>
+  {% endif %}
+
 	<sp-lide data-auto-scroll="1" class="splide" data-splide='{
 						        "type": "loop",
 						        "autoWidth": true,
@@ -12,20 +16,20 @@
 						        "drag": "free",
 						        "autoScroll": {
 						          "speed": {{scrollspeed}},
-						          "pauseOnHover": false
+						          "pauseOnHover": true
 						        }
 						      }'>
 		<div class="splide__track">
 
 			<ul class="splide__list unstyled-list">
-				{% for text in data.texts %}
+				{% for image in data.logos %}
 					<li class="splide__slide">
-						<div class="text-ticker__text fs-18 lh-1-1 fs-dt-25">{{ text }}</div>
+						<img class="lt__asset" src="{{ image.image }}" alt="{{ image.alt }}">
 					</li>
 				{% endfor %}
-				{% for text in data.texts %}
+        {% for image in data.logos %}
 					<li class="splide__slide">
-						<div class="text-ticker__text fs-18 lh-1-1 fs-dt-25">{{ text }}</div>
+						<img class="lt__asset" src="{{ image.image }}" alt="{{ image.alt }}">
 					</li>
 				{% endfor %}
 			</ul>

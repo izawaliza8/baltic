@@ -1,0 +1,56 @@
+@use '../global/' as *;
+
+.designer-top {
+
+  @include mq($dt) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+
+  &__asset {
+    width: 100%;
+
+    @include mq($dt) {
+      grid-column: 2 / span 5;
+    }
+
+    img,
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    @include mq($dt) {
+      grid-column: 8 / span 4;
+    }
+  }
+
+  &__text {
+    p {
+      margin-bottom: 1em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
+  &__table-row {
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--black);
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: 1fr 3fr;
+    align-items: baseline;
+
+    &:first-child {
+      border-top: 1px solid var(--black);
+    }
+  }
+}

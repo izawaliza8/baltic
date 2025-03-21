@@ -1,0 +1,44 @@
+
+{% set align = data.align | default('center') %}
+{% set width = data.width | default('wide') %}
+
+<div class="bt anim-trigger container">
+
+  <div class="bt__text-container reveal-child">
+  
+    {% if data.text_html is not empty %}
+      <div class="bt__text fs-24 fs-dt-40 lh-1-2 lh-dt-1-1
+        {% if data.link_1 is defined and data.link_1 is not empty %}
+          pb-40 pb-dt-80 
+        {% else %}
+          pb-0
+        {% endif %}
+        {% if align == 'left' %}
+          text-left
+        {% else %}
+          center
+        {% endif %}
+        {% if width == 'narrow' %}
+          bt__text--narrow
+        {% endif %}
+      ">{{data.text_html | raw}}</div>
+    {% endif %}
+
+    <div class="bt__links {% if align == 'left' %}bt__links--left{% endif %} {% if width == 'narrow' %}bt__links--narrow{% endif %} ">
+      {% if data.link_1 is defined and data.link_1 is not empty %}
+          <a class="btn" href="{{ data.link_1.url }}" target="{{ data.link_1.target | default('_self') }}">
+            <span class="dt-only">{{ data.link_1.title }}</span>
+            <span class="mob-only">{{ data.link_1.short_title }}</span>
+          </a>
+      {% endif %}
+
+      {% if data.link_2 is defined and data.link_2 is not empty %}
+          <a class="btn" href="{{ data.link_2.url }}" target="{{ data.link_2.target | default('_self') }}">
+            <span class="dt-only">{{ data.link_2.title }}</span>
+            <span class="mob-only">{{ data.link_2.short_title }}</span>
+          </a>
+      {% endif %}
+    </div>
+  </div>
+      
+</div>

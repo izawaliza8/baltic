@@ -1,6 +1,6 @@
 @use '../global/' as *;
 
-.sa {
+.ar {
 
   &__container {
 
@@ -12,6 +12,10 @@
   }
 
   &__content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+
     @include mq($dt) {
       grid-column: 2 /span 10;
     }
@@ -25,34 +29,6 @@
       width: 100%;
       height: auto;
     }
-  }
-
-  &__text {
-    @include mq($dt) {
-      max-width: 45rem;
-    }
-  }
-
-  &__bottom-text {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  &__rating {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    flex-shrink: 0;
-
-    svg {
-      height: 1.5rem;
-      width: auto;
-    }
-  }
-
-  &__eco {
-    margin-left: 1rem;
   }
 
 }

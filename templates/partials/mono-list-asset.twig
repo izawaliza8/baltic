@@ -1,0 +1,41 @@
+<section class="mono-list-asset">
+  <div class="container">
+    <div class="mono-list-asset__content">
+
+      <div class="mono-list-asset__asset-text-wrapper">
+
+        <div class="mono-list-asset__asset mb-20 mb-dt-0">
+          {% if data.asset is defined and data.asset is not empty %}
+            {% if data.asset.video is defined and data.asset.video is not empty %}
+              <div class="mono-list-asset__video">
+                <video src="{{ data.asset.video }}" muted playsinline></video>
+              </div>
+            {% else %}
+              {% if data.asset.image is defined and data.asset.image is not empty %}
+                <div class="mono-list-asset__image">
+                  <img src="{{ data.asset.image }}" alt="{{ data.asset.alt }}">
+                </div>
+              {% endif %}
+            {% endif %}
+            {% endif %}
+        </div>
+
+        {% if data.side_text_html is defined and data.side_text_html is not empty %}
+          <div class="mono-list-asset__asset-text fs-25 lh-1-2 dt-only clr-yellow">{{ data.side_text_html | raw }}</div>
+        {% endif %}
+      
+      </div>
+
+      <div class="mono-list-asset__text-list">
+
+        {% if data.texts is defined and data.texts is not empty %}
+          {% for text in data.texts %}
+            <div class="mono-list-asset__text fs-14 fs-dt-16 lh-1-1 lh-dt-1-2 ff-mono pt-5 pb-5 pt-dt-10 pb-dt-10">{{ text.text_html | raw }}</div>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>

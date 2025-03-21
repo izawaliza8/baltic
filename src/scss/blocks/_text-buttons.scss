@@ -1,0 +1,43 @@
+@use '../global/' as *; 
+
+.tb {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  @include mq($dt) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0 1.4rem;
+    align-items: center;
+  }
+
+  &__text-container {
+
+    @include mq($dt) {
+      grid-column: 1 / span 6;
+    }
+  
+    &--only {
+      @include mq($dt) {
+        grid-column: 7 /span 6;
+      }
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem;
+
+    @include mq($dt) {
+      display: flex;
+    }
+  }
+
+  &__text-2 {
+    @include mq($dt) {
+      grid-column: 8 / span 4;
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{% set top_data = {
+    "asset": {
+        "image": "https://placehold.co/600x800/000/fff",
+        "video": false,
+        "alt": "Florentine Kitchen Knives",
+    },
+    "heading": "Florentine Kitchen Knives",
+    "text_html": "<p>Forentine Kitchen Knives was founded in 2012 by Industrial Designer Tomer Botner, in Florentin, Tel-Aviv (where the brand takes its name) and was later joined by his wife Noam, a fashion designer. Now a small (but mighty!) team of six, Florentine Kitchen Knives are based in Barcelona and have their workshop and store open to the public. This shift allows you to see and understand the makers’ process, along with learning about the history and tradition of knife making.</p>
+    <p>
+    The team work together to create eye-catching, premium knives and objects for chefs that stand the test of time – we’re talking pieces that make you stop, do a 180 spin and say “hold on, what is THAT?”. Produced in small batches, pieces are made to order then assembled and finished by hand using the highest quality materials.
+    </p>
+    <p>
+Florentine Kitchen Knives can be found in private kitchens and restaurants throughout the globe, including Gordon Ramsay’s Lucky-Cat and the Savoy Grill in London, along with Osip in rural Somerset, Christian Bau’s Victor’s Fine Dining in Germany and David Barzilay’s Lazy Bear in San Francisco (to name a just a few!). Rumour has it Jason Atherton is a huge fan of Florentine Kitchen Knives and when he shares videos from his home kitchen, their website traffic hits the roof!</p>",
+    "table": [
+        {
+            "label": "MAIN MATERIAL",
+            "content": "Knives",
+        },
+        {
+            "label": "NAME",
+            "content": "Florentine Kitchen Knives",
+        },
+        {
+            "label": "Speciality",
+            "content": "Cutlery",
+        },
+        {
+            "label": "LOCATION",
+            "content": "Barcelona, Spain",
+        },
+    ]
+} %}
+
+{% set big_text_data = {
+    "text_html": "<p>Florentine Quote or Statements lonec sed odio dui. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes.</p>",
+    "align": "left",
+} %}
+
+{% set single_asset_data = {
+        "image": "https://placehold.co/1200x800/000/fff",
+        "video": false,
+        "alt": "Slide 1",
+        "caption": "Caption Lorem Psumm",
+} %}
+
+{% set assets_row_data = [
+    {
+        "image": "https://placehold.co/570x750/000/fff",
+        "video": false,
+        "alt": "Slide 1",
+        "caption": "Caption Lorem Psumm",
+    },
+    {
+        "image": "https://placehold.co/570x750/000/fff",
+        "video": false,
+        "alt": "Slide 1",
+        "caption": "Caption Lorem Psumm",
+    },
+] %}
+
+
+{% set carousel_1_data = {
+    "heading": false,
+    "items": [
+        {
+            "asset": {
+                "image": "https://placehold.co/713x455",
+                "alt": "Kinto Japan",
+                "video": false,
+            },  
+            "caption": "IKOYI, London, UK",
+            "link": {
+                    "url": "#",
+            },
+        },
+        {
+            "asset": {
+                "image": "https://placehold.co/479x660",
+                "alt": "Kinto Japan",
+                "video": false,
+            },
+            "caption": "IKOYI, London, UK",
+            "link": {
+                "url": "#",
+            },
+        },
+        {
+            "asset": {
+                "image": "https://placehold.co/700x460",
+                "alt": "Kinto Japan",
+                "video": false,
+            },
+            "caption": "IKOYI, London, UK",
+            "link": {
+                "url": "#",
+            },
+        },
+        {
+            "asset": {
+                "image": "https://placehold.co/713x455",
+                "alt": "Kinto Japan",
+                "video": false,
+            },  
+            "caption": "IKOYI, London, UK",
+            "link": {
+                    "url": "#",
+            },
+        },
+        {
+            "asset": {
+                "image": "https://placehold.co/479x660",
+                "alt": "Kinto Japan",
+                "video": false,
+            },
+            "caption": "IKOYI, London, UK",
+            "link": {
+                "url": "#",
+            },
+        },
+        {
+            "asset": {
+                "image": "https://placehold.co/700x460",
+                "alt": "Kinto Japan",
+                "video": false,
+            },
+            "caption": "IKOYI, London, UK",
+            "link": {
+                "url": "#",
+            },
+        }
+    ]
+} %}
+
+
+{% set table_related_data = {
+  "tabs": [
+        {
+            "heading": "RELATED DESIGNERS",
+            "cols": "3",
+            "items": [
+                {               
+                    "name": "Kinto Japan Kinto Japan Kinto Japan",
+                    "sepcialty": "Tableware",
+                    "country": "Japan",
+                    "link": {
+                        "url": "#",
+                    },
+                    "image": "https://placehold.co/100x100",
+                    "alt": "Kinto Japan",
+                    "video": false,
+                },
+                {
+                    "name": "Kinto Japan",
+                    "sepcialty": "Tableware",
+                    "country": "Japan",
+                    "link": {
+                        "url": "#",
+                    },
+                    "image": "https://placehold.co/200x100",
+                    "alt": "Kinto Japan",
+                    "video": false,
+                },
+                {
+                    "name": "Kinto Japan",
+                    "sepcialty": "Tableware",
+                    "country": "Japan",
+                    "link": {
+                        "url": "#",
+                    },
+                    "image": "https://placehold.co/300x100",
+                    "alt": "Kinto Japan",
+                    "video": false,
+                },
+                {
+                    "name": "Kinto Japan",
+                    "sepcialty": "Tableware",
+                    "country": "Japan",
+                    "link": {
+                        "url": "#",
+                    },
+                    "image": "https://placehold.co/400x500/red/blue",
+                    "alt": "Kinto Japan",
+                    "video": false,
+                }   
+            ]
+        } 
+    ]
+} %}
+
+{% extends './base.twig' %}
+
+{% block body_class %}florentine-kitchen-knives
+{% endblock %}
+
+{% block header %}
+	{% include './partials/header.twig' with { "current_page": "designer" } %}
+{% endblock %}
+
+{% block content %}
+
+	{% include './partials/designer-top.twig' with { "data": top_data } %}
+
+    <div class="pt-20 pt-dt-30"></div>
+
+    {% include './partials/big-text.twig' with { "data": big_text_data } %}
+
+    <div class="pt-20 pt-dt-30"></div>
+
+    {% include './partials/single-asset.twig' with { "data": single_asset_data } %}
+
+    <div class="pt-30 pt-dt-50"></div>
+
+    {% include './partials/assets-row.twig' with { "data": assets_row_data } %}
+
+    <div class="pt-50"></div>
+    
+    {% include './partials/items-carousel.twig' with { "data": carousel_1_data } %}
+    
+    <div class="pt-50 pt-dt-100"></div>
+
+    {% include './partials/table.twig' with { "data": table_related_data } %}
+
+    <div class="pt-50 pt-dt-100"></div>
+
+{% endblock %}
+
+{% block footer %}
+	{% include './partials/footer.twig' with { "class": "bg-yellow" } %}
+{% endblock %}

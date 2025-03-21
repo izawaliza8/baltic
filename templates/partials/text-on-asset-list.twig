@@ -1,0 +1,39 @@
+<section class="text-on-asset-list">
+  <div class="text-on-asset-list__content">
+		{% for item in data %}
+			<div class="text-on-asset-list__item
+				{% if loop.index == 1 %}
+					pt-120 pb-120
+				{% else %}
+					pt-80 pb-80
+				{% endif %}
+			">
+				<div class="text-on-asset-list__item-text
+					fs-24 lh-1-2 fs-dt-40 lh-1-1
+					{% if loop.index == 1 %}
+						left
+					{% else %}
+						center left-dt
+					{% endif %}
+				">
+					<div class="container text-on-asset-list__item-text-container">
+						<div class="text-on-asset-list__item-text-inner">
+							{{ item.text }}
+						</div>
+					</div>
+				</div>
+				<div class="text-on-asset-list__item-asset">
+					{% if item.video is defined and item.video is not empty %}
+						<video src="{{ item.video }}" alt="{{ item.alt }}" muted playsinline></video>
+					{% else %}
+						{% if item.image is defined and item.image is not empty %}
+							<img src="{{ item.image }}" alt="{{ item.alt }}">
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>
+
+

@@ -1,0 +1,55 @@
+<section class="about-project">
+	<div class="container container--dt about-project__container">
+		<div class="about-project__content">
+
+			<div class="about-project__column about-project__column--table">
+				{% if data.table is defined and data.table is not empty %}
+					<div class="about-project__table mb-30">
+						<div class="about-project__table-row">
+							<div class="about-project__table-cell container container--mob">
+								<div class="about-project__table-cell-label upper fs-9">Year</div>
+								<div class="about-project__table-cell-value fs-14">{{ data.table.year }}</div>
+							</div>
+							<div class="about-project__table-cell container container--mob">
+								<div class="about-project__table-cell-label upper fs-9">Location</div>
+								<div class="about-project__table-cell-value fs-14">{{ data.table.location }}</div>
+							</div>
+							<div class="about-project__table-cell container container--mob">
+								<div class="about-project__table-cell-label upper fs-9">Services</div>
+								<div class="about-project__table-cell-value fs-14">
+									{% for service in data.table.services %}
+										<div class="about-project__table-cell-service">{{ service }}</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if data.asset is defined and data.asset is not empty %}
+					<div class="about-project__asset container container--mob">
+						{% if data.asset.video is defined and data.asset.video is not empty %}
+							<video src="{{ data.asset.video }}" alt="{{ data.asset.alt }}" muted playsinline></video>
+						{% else %}
+							<img src="{{ data.asset.image }}" alt="{{ data.asset.alt }}">
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="about-project__column about-project__column--text container container--mob">
+
+				{% if data.heading is defined and data.heading is not empty %}
+					<h1 class="about-project__heading fs-20 lh-1-2 fs-dt-30 pb-30 pb-dt-80">{{ data.heading }}</h1>
+				{% endif %}
+
+				{% if data.text_html is defined and data.text_html is not empty %}
+					<div class="about-project__text">{{ data.text_html | raw }}</div>
+				{% endif %}
+
+			</div>
+
+
+		</div>
+	</div>
+</section>

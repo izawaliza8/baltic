@@ -1,0 +1,11 @@
+@use '../global/' as *;
+
+.lt {
+  &__asset {
+    height: 3rem;
+
+    @include mq($dt) {
+      height: 3.5rem;
+    }
+  }
+}

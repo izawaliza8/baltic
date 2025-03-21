@@ -26,14 +26,6 @@ body {
   width: 100%;
   transition: background-color 0.35s var(--easing) .35s;
   
-  
-  &.home-page {
-    background-color: var(--blue);
-    
-    &.show-nav {
-      background-color: var(--white);
-    }
-  }
 }
 
 a {

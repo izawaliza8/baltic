@@ -125,6 +125,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--white);
+    pointer-events: none;
 
     @include mq($dt) {
       opacity: 1;

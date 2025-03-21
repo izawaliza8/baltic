@@ -1,0 +1,16 @@
+{% if data %}
+  <div class="quote">
+    <div class="container quote__container">
+      <div class="quote__inner">
+        <div class="quote__text fs-18 lh-1-1 fs-dt-25 lh-dt-1-2 italic pb-10">
+          {{ data.text_html|raw }}
+        </div>
+        {% if data.author %}
+          <div class="quote__author fs-18 lh-1-1 lh-dt-1-2 fs-dt-25">
+            {{ data.author }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
