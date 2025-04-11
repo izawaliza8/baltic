@@ -22,7 +22,6 @@ body {
   font-weight: 400;
   color: var(--black);
   background-color: var(--white);
-  padding-top: var(--header-height);
   width: 100%;
   transition: background-color 0.35s var(--easing) .35s;
   
@@ -151,8 +150,10 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
 }
 
+
 .main {
   position: relative;
+  z-index: 20;
 }
 
 .home-page {

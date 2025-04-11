@@ -1,18 +1,18 @@
 <div class="sal anim-trigger">
 	<div class="sal__container container container--dt">
 		{% if data.url %}
-			<a href="{{ data.url }}" class="sal__content">
+			<a href="{{ data.url }}" class="sal__content anim-trigger" data-item-hover="View project">
 			{% else %}
-				<div class="sal__content">
-				{% endif %}
-				<div class="sal__asset-wrapper mb-5">
+			<div class="sal__content anim-trigger	">
+			{% endif %}
+				<div class="sal__asset-wrapper mb-5 reveal-child">
 					{% if data.video %}
 						<video src="{{ data.video }}" alt="{{ data.alt }}" muted playsinline></video>
 					{% else %}
 						<img src="{{ data.image }}" alt="{{ data.alt }}">
 					{% endif %}
 				</div>
-				<div class="sal__text-wrapper container container--mob">
+				<div class="sal__text-wrapper container container--mob reveal-child">
 					<h3 class="sal__title fs-20 fs-dt-30 lh-1-2 lh-dt-1-1 mb-5 mb-dt-10">{{ data.title }}</h3>
 					<div class="sal__text wysiwyg fs-16 lh-1-3 mb-5 mb-dt-10">
 						{{ data.text_html|raw }}
@@ -39,7 +39,7 @@
 						<div class="sal__info fs-10 fs-dt-12 lh-1-2">{{ data.info }}</div>
 					</div>
 				</div>
-				{% if data.url %}
+			{% if data.url %}
 				</a>
 		{% else %}
 			</div>

@@ -46,6 +46,16 @@
     align-items: center;
   }
 
+  &__info-link-label {
+    transition: all .3s var(--easing);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: skew(-15deg, 0deg);
+      }
+    }
+  }
+
   .f-icon {
     width: 1.5rem;
     height: 1.5rem;
@@ -86,6 +96,17 @@
     margin-bottom: .5rem;
     border-bottom: 1px solid currentColor;
     min-height: 2.5rem;
+
+    span {
+      display: inline-block;
+      transition: all .3s var(--easing);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: skew(-15deg, 0deg);
+        }
+      }
+    }
   }
 
   &__meta {
@@ -111,6 +132,21 @@
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
+
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        svg {
+          rect {
+            fill: var(--beige);
+          }
+
+          path {
+            stroke: var(--black);
+          }
+        }
+      }
+    }
   }
 
   &__logo-wrapper {

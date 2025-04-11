@@ -78,17 +78,11 @@
 
   &__columns {
     display: flex;
-    overflow-x: auto;
-    scrollbar-width: none; // Firefox
-    -ms-overflow-style: none; // IE and Edge
-    
-    &::-webkit-scrollbar {
-      display: none; // Chrome, Safari, Opera
-    }
     
     @include mq($dt) {
       overflow-x: initial;
       gap: 1.2rem;
+      display: flex !important; // override splide
     }
   }
 
@@ -117,6 +111,17 @@
       
       &:nth-child(2) {
         margin-left: 0.5rem;
+      }
+    }
+
+    span {
+      @media (hover: hover) and (pointer: fine) {
+        transition: all .3s var(--easing);
+        display: inline-block;
+
+        &:hover {
+          transform: skew(-15deg, 0deg);
+        }
       }
     }
   }

@@ -13,11 +13,11 @@
 				<ul class="splide__list unstyled-list">
 					{% for slide in data.slides %}
 						<li class="splide__slide fs__slide">
-							<div class="fs__slide-inner">
-								<div class="fs__image-container">
+							<div class="fs__slide-inner anim-trigger">
+								<div class="fs__image-container reveal-child">
 									<img src="{{ slide.image }}" alt="{{ slide.alt }}" class="fs__image">
 								</div>
-								<div class="fs__content container clr-white">
+								<div class="fs__content container clr-white reveal-child">
 									<div class="fs__text ">
 										<div class="fs__text-inner wysiwyg fs-18 fs-dt-25 lh-1-1 lh-dt-1-2">
 											{{ slide.text_html|raw }}

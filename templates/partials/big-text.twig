@@ -24,7 +24,7 @@
       ">{{data.text_html | raw}}</div>
     {% endif %}
 
-    <div class="bt__links {% if align == 'left' %}bt__links--left{% endif %} {% if width == 'narrow' %}bt__links--narrow{% endif %} ">
+    <div class="bt__links {% if align == 'left' %}bt__links--left{% endif %} {% if width == 'narrow' %}bt__links--narrow{% endif %} reveal-child">
       {% if data.link_1 is defined and data.link_1 is not empty %}
           <a class="btn" href="{{ data.link_1.url }}" target="{{ data.link_1.target | default('_self') }}">
             <span class="dt-only">{{ data.link_1.title }}</span>

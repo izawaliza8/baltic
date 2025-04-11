@@ -1,7 +1,7 @@
 <section class="text-asset">
   <div class="container">
-    <div class="text-asset__content">
-      <div class="text-asset__asset mb-20 mb-dt-0">
+    <div class="text-asset__content anim-trigger">
+      <div class="text-asset__asset mb-20 mb-dt-0 reveal-child">
         {% if data.video is defined and data.video is not empty %}
           <div class="text-asset__video">
             <video src="{{ data.video }}" muted playsinline></video>
@@ -15,7 +15,7 @@
         {% endif %}
       </div>
 
-      <div class="text-asset__text">
+      <div class="text-asset__text reveal-child">
         {% if data.text_html is defined and data.text_html is not empty %}
           <div class="text-asset__text-html fs-16 lh-1-2 lh-dt-1-3">{{ data.text_html | raw }}</div>
         {% endif %}

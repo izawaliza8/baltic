@@ -1,16 +1,16 @@
-<div class="tas anim-trigger">
+<div class="tas">
 	<div class="tas__wrapper">
-		<div class="tas__content pb-10 reveal-child">
+		<div class="tas__content pb-10">
 
       {% if data.text_1_html is not empty %}
-        <div class="container tas__text fs-20 fs-dt-30 lh-1-2 lh-dt-1-1 pb-40">{{data.text_1_html | raw}}</div>
+        <div class="container tas__text fs-20 fs-dt-30 lh-1-2 lh-dt-1-1 pb-40 reveal">{{data.text_1_html | raw}}</div>
       {% endif %}
 
       <div class="tas__assets-row">
       
         {% if data.link_1 is not empty %}
-          <div class="tas__link tas__link--1">
-            <a href="{{ data.link_1.link.url }}" class="">
+          <div class="tas__link tas__link--1 reveal">
+            <a href="{{ data.link_1.link.url }}" data-item-hover="View project" class="">
               {% if data.link_1.asset.video %}
                 <video src="{{ data.link_1.asset.video }}" alt="{{ data.link_1.asset.alt }}" data-asset muted playsinline></video>
               {% else %}
@@ -33,8 +33,8 @@
         {% endif %}
 
         {% if data.link_2 is not empty %}
-          <div class="tas__link tas__link--2">
-            <a href="{{ data.link_2.link.url }}" class="">
+          <div class="tas__link tas__link--2 reveal">
+            <a href="{{ data.link_2.link.url }}" data-item-hover="View project" class="">
               {% if data.link_2.asset.video %}
                 <video src="{{ data.link_2.asset.video }}" alt="{{ data.link_2.asset.alt }}" data-asset muted playsinline></video>
               {% else %}
@@ -62,12 +62,12 @@
   
     
         {% if data.text_2_html is not empty %}
-          <div class="tas__text-2 fs-18 fs-dt-25 lh-1-1 lh-dt-1-2 wysiwyg container">{{data.text_2_html | raw}}</div>
+          <div class="tas__text-2 fs-18 fs-dt-25 lh-1-1 lh-dt-1-2 wysiwyg container reveal">{{data.text_2_html | raw}}</div>
         {% endif %}
         
         {% if data.link_3 is not empty %}
-          <div class="tas__link tas__link--3">
-            <a href="{{ data.link_3.link.url }}" class="">
+          <div class="tas__link tas__link--3 reveal">
+            <a href="{{ data.link_3.link.url }}" data-item-hover="View project" class="">
               {% if data.link_3.asset.video %}
                 <video src="{{ data.link_3.asset.video }}" alt="{{ data.link_3.asset.alt }}" data-asset muted playsinline></video>
               {% else %}

@@ -1,6 +1,6 @@
-<section class="text-columns container container--dt">
+<section class="text-columns container container--dt anim-trigger">
   {% for item in data.items %}
-    <div class="text-columns__item text-columns__item--{{item.columns|length}}  pb-40">
+    <div class="text-columns__item text-columns__item--{{item.columns|length}}  pb-40 reveal-child">
       <h2 class="text-columns__heading container container--mob pt-10 pb-20 pb-dt-30 fs-18 fh-1-1 fs-dt-25 lh-dt-1-2">
       Kinn Collective
       <br>
@@ -8,11 +8,34 @@
       </h2>
 
       {% if item.columns %}
-        <div class="text-columns__columns">
+        {% if item.columns|length >= 3 %}
+          <sp-lide data-auto-scroll="1" class="splide text-columns__ticker" data-splide='{
+										"type": "loop",
+										"autoWidth": true,
+										"gap": "3rem",
+										"pagination": false,
+										"arrows": false,
+										"drag": "free",
+										"autoScroll": {
+											"speed": 0.05
+										},
+										"mediaQuery": "min",
+										"breakpoints": {
+											"1180": {
+													"destroy": true
+											}
+										}
+									}'>
+          <div class="splide__track">
+            <ul class="splide__list unstyled-list text-columns__columns">
+        {% else %}
+          <div class="text-columns__columns">
+        {% endif %}
+          
           {% for column in item.columns %}
-            <div class="text-columns__column">
+            <div class="text-columns__column anim-trigger splide__slide">
               {% for item in column.items %}
-                <div class="text-columns__link-item">
+                <div class="text-columns__link-item reveal-child">
 
 
                   {% if item.url %}
@@ -41,18 +64,25 @@
               {% endfor %}
             </div>
           {% endfor %}
-        </div>
+
+          {% if item.columns|length >= 3 %}
+              </ul>
+            </div>
+          </sp-lide>
+          {% else %}
+            </div>
+        {% endif %}
       {% endif %}
 
       {% if item.footnote is defined and item.footnote %}
-        <p class="text-columns__footnote container container--mob fs-14 fh-1-1 fs-dt-16 lh-dt-1-2 ff-mono pt-20 mob-only">
+        <p class="text-columns__footnote container container--mob fs-14 fh-1-1 fs-dt-16 lh-dt-1-2 ff-mono pt-20 mob-only reveal">
           ❋ {{ item.footnote }}
         </p>
       {% endif %}
     </div>
   {% endfor %}
   {% if data.footenote__dt %}
-    <div class="text-columns__footenote dt-only" style="grid-column: {{ data.footenote__dt.columns }};">
+    <div class="text-columns__footenote dt-only reveal" style="grid-column: {{ data.footenote__dt.columns }};">
      ❋ {{ data.footenote__dt.text  }}
     </div>
   {% endif %}

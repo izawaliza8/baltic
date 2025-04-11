@@ -1,6 +1,6 @@
 <div class="contact-block container">
   <div class="contact-block__grid">
-    <div class="contact-block__media mb-30 mb-dt-0">
+    <div class="contact-block__media mb-30 mb-dt-0 reveal" data-delay="200">
       {% if data.video %}
         <video src="{{ data.image }}" alt="{{ data.alt }}" autoplay loop muted playsinline></video>
       {% else %}
@@ -13,26 +13,26 @@
     <div class="contact-block__content">
       {% if data.text %}
         {% if data.text.heading_1 %}
-          <h2 class="contact-block__heading fs-20 lh-1-2 fs-30 lh-dt-1-1 mb-20">{{ data.text.heading_1 }}</h2>
+          <h2 class="contact-block__heading fs-20 lh-1-2 fs-30 lh-dt-1-1 mb-20 reveal">{{ data.text.heading_1 }}</h2>
         {% endif %}
 
-        <div>
+        <div class="anim-trigger">
           {% if data.text.text_1_html %}
-            <div class="contact-block__description pb-20">
+            <div class="contact-block__description pb-20 reveal">
               {{ data.text.text_1_html|raw }}
             </div>
           {% endif %}
 
-          <div class="contact-block__links pb-60">
+          <div class="contact-block__links pb-60 anim-trigger">
             {% if data.text.link_1 %}
-              <a href="{{ data.text.link_1.url }}" class="contact-block__link btn">
+              <a href="{{ data.text.link_1.url }}" class="contact-block__link btn reveal">
                 <span class="full-title dt-only">{{ data.text.link_1.title }}</span>
                 <span class="short-title mob-only">{{ data.text.link_1.short_title }}</span>
               </a>
             {% endif %}
 
             {% if data.text.link_2 %}
-              <a href="{{ data.text.link_2.url }}" class="contact-block__link btn">
+              <a href="{{ data.text.link_2.url }}" class="contact-block__link btn reveal">
                 <span class="full-title dt-only">{{ data.text.link_2.title }}</span>
                 <span class="short-title mob-only">{{ data.text.link_2.short_title }}</span>
               </a>
@@ -41,25 +41,25 @@
         </div>
 
         {% if data.text.contact_info_html %}
-          <div class="contact-block__info pb-40">
+          <div class="contact-block__info pb-40 reveal">
             {{ data.text.contact_info_html|raw }}
           </div>
         {% endif %}
 
         <div>
           {% if data.text.heading_2 %}
-            <h3 class="contact-block__subheading fs-20 lh-1-2 fs-30 lh-dt-1-1 mb-20">{{ data.text.heading_2 }}</h3>
+            <h3 class="contact-block__subheading fs-20 lh-1-2 fs-30 lh-dt-1-1 mb-20 reveal">{{ data.text.heading_2 }}</h3>
           {% endif %}
 
           {% if data.text.text_2_html %}
-            <div class="contact-block__address pb-40">
+            <div class="contact-block__address pb-40 reveal">
               {{ data.text.text_2_html|raw }}
             </div>
           {% endif %}
         </div>
 
         {% if data.text.colophon_html %}
-          <div class="contact-block__colophon">
+          <div class="contact-block__colophon reveal">
             {{ data.text.colophon_html|raw }}
           </div>
         {% endif %}

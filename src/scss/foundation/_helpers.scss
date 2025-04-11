@@ -196,8 +196,6 @@ video-loop {
   }
 }
 
-
-
 .clr-white {
   color: var(--white, #ffffff);
 }
@@ -220,7 +218,7 @@ video-loop {
 
 .clr-pale-yellow {
   color: var(--pale-yellow, #DFCD9D);
-} 
+}
 
 .clr-yellow {
   color: var(--yellow, #D69626);
@@ -247,3 +245,30 @@ video-loop {
     }
   }
 }
+
+.hover-text {
+  position: fixed;
+  pointer-events: none;
+  padding: 8px 16px;
+  background: white;
+  color: black;
+  border-radius: 100px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  z-index: 1000;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+[data-item-hover] {
+  img, video {
+    &:hover {
+      cursor: none;
+    }
+  }
+} 

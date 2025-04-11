@@ -1,15 +1,22 @@
 @use '../global' as *;
 
-.header {
-  background-color: var(--white);
-  position: fixed;
+.header-wrapper {
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 90000;
   transition: transform 0.35s var(--easing);
 
-  .hide-nav &,
+  .hide-nav & {
+    transform: translateY(-100%);
+  }
+}
+
+.header {
+  background-color: var(--white);
+  transition: transform 0.35s var(--easing);
+
   .start-intro & {
     transform: translateY(-100%);
   }
@@ -44,7 +51,6 @@
   &__bar {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid var(--light-grey);
     min-height: 5rem;
     align-items: flex-end;
   }
@@ -57,6 +63,7 @@
   &__logo {
     height: 2.6rem;
     width: auto;
+    transition: opacity 0.15s var(--easing);
 
     @include mq($dt) {
       height: 3.2rem;
@@ -191,28 +198,14 @@
   }
 
   &__nav-link {
-
     @media (hover: hover) and (pointer: fine) {
-      position: relative;
+      transition: all .3s var(--easing);
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: var(--black);
-        transition: all 0.3s var(--easing);
-        transform: scaleX(0);
-      }
-
-      &:hover::after {
-        transform: scaleX(1);
+      &:hover {
+        transform: skew(-15deg, 0deg);
+        display: inline-block;
       }
     }
-
-
   }
 
   &__byline {

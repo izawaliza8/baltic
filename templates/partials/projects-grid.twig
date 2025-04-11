@@ -2,14 +2,14 @@
 
 	{% if heading is defined and heading is not empty %}
 		<div class="container">
-			<h2 class="pg__heading fs-16 lh-1-1 fs-dt-18 pb-20 pb-dt-30 pt-20 upper">{{ heading }}</h2>
+			<h2 class="pg__heading fs-16 lh-1-1 fs-dt-18 pb-20 pb-dt-30 pt-20 upper reveal">{{ heading }}</h2>
 		</div>
 	{% endif %}
 
-	<div class="pg__container container container--dt">
+	<div class="pg__container container container--dt anim-trigger">
 
 		{% for project in data %}
-			<a href="{{ project.url }}" class="pg__item">
+			<a href="{{ project.url }}" class="pg__item reveal-child" data-item-hover="View project">
 				<div class="pg__item-inner">
 					<div class="pg__item-asset">
 						{% if project.video %}

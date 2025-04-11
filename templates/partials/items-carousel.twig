@@ -1,9 +1,9 @@
 {% set scrollspeed = 1.1 %}
 
-<section class="ic reveal">
+<section class="ic anim-trigger">
 
   {% if data.heading is not empty %}
-    <h2 class="ic__heading container fs-16 fs-dt-18 pb-32 upper">{{data.heading}}</h2>
+    <h2 class="ic__heading container fs-16 fs-dt-18 pb-32 upper reveal-child">{{data.heading}}</h2>
   {% endif %}
 
 	<sp-lide data-auto-scroll="1" class="splide" data-splide='{
@@ -23,9 +23,9 @@
 
 			<ul class="splide__list unstyled-list">
 				{% for item in data.items %}
-					<li class="splide__slide ic__slide">
+					<li class="splide__slide ic__slide reveal-child">
 						{% if item.link is not empty %}
-							<a href="{{ item.link.url }}" class="">
+							<a href="{{ item.link.url }}" class="" data-item-hover="View project">
 						{% else %}
 							<div class="ic__slide-inner">
 						{% endif %}

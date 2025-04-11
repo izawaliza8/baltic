@@ -252,9 +252,31 @@
     ]
 } %}
 
+{% set intro_anim_data = {
+    "image": "https://placehold.co/100x100/CD5E30/A54F2B",
+} %}
+
+
 {% extends './base.twig' %}
 
 {% block body_class %}home-page
+{% endblock %}
+
+{% block top %}
+	<intro-anim>
+		<div class="intro-anim">
+			<div class="intro-anim__image">
+				<img src="{{ intro_anim_data.image }}" alt="" class="reveal">
+			</div>
+			<div class="intro-anim__logo">
+				{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--beige reveal", "data_root_margin": "100" } %}
+				{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--black reveal", "data_root_margin": "100" } %}
+			</div>
+		</div>
+	</intro-anim>
+	<div class="container home-top-logo-container" data-top-logo>
+		{% include "./partials/logo-full-svg.twig" with { "class": "home-top-logo" } %}
+	</div>
 {% endblock %}
 
 {% block header %}
@@ -263,23 +285,24 @@
 
 {% block content %}
 
+
 	<div class="pt-80 pt-dt-160"></div>
 
 	{% include './partials/text-assets-scroll.twig' with { "data": home_top_data } %}
-	
-    <div class="pt-60 pt-dt-190"></div>
 
-    {% include './partials/text-buttons.twig' with { "data": home_text_btns_data } %}
+	<div class="pt-60 pt-dt-190"></div>
 
-    <div class="pt-50 pt-dt-80"></div>
+	{% include './partials/text-buttons.twig' with { "data": home_text_btns_data } %}
 
-    {% include './partials/logos-ticker.twig' with { "data": home_logos_data } %}
-    
-    <div class="pt-50 pt-dt-80"></div>
+	<div class="pt-50 pt-dt-80"></div>
 
-    {% include './partials/table.twig' with { "data": table_data } %}
+	{% include './partials/logos-ticker.twig' with { "data": home_logos_data } %}
 
-    <div class="pt-50 pt-dt-80"></div>
+	<div class="pt-50 pt-dt-80"></div>
+
+	{% include './partials/table.twig' with { "data": table_data } %}
+
+	<div class="pt-50 pt-dt-80"></div>
 
 {% endblock %}
 

@@ -35,6 +35,12 @@ class TableEl extends HTMLElement {
         const activePanel = this.querySelector(`[data-panel="${panelId}"]`);
         activePanel.classList.add('is-active');
 
+        // Reset animations for the newly activated panel
+        const animTriggers = activePanel.querySelectorAll('.anim-trigger');
+        animTriggers.forEach(trigger => {
+          window.removeAndReobserve(trigger);
+        });
+
         // Show first image of newly activated panel
         const firstRowInPanel = activePanel.querySelector('.table__row');
         if (firstRowInPanel && firstRowInPanel.dataset.image) {

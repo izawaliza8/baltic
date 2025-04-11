@@ -71,6 +71,16 @@ const observeElements = () => {
 	});
 };
 
+const removeVisibleClasses = (element) => {
+	element.classList.remove('visible');
+	const children = element.querySelectorAll('.reveal-child, .grow-child');
+	if (children.length != 0) {
+		children.forEach((child) => {
+			child.classList.remove('visible-child');
+		});
+	}
+};
+
 observeElements();
 
 window.resetObservers = () => {
@@ -79,9 +89,24 @@ window.resetObservers = () => {
 	}
 
 	observers.clear();
-
 	observeElements();
 }
+
+window.removeAndReobserve = (element) => {
+	// Remove visible classes from the element and its children
+	removeVisibleClasses(element);
+	
+	// Re-observe the element
+	const rootMarginDivider = element.getAttribute('data-root-margin') || 5;
+	let rootMargin = `0px`;
+	
+	if (rootMarginDivider != 0) {
+		rootMargin = `${window.innerHeight / rootMarginDivider}px`;
+	}
+	
+	const observer = createObserver(element, rootMargin);
+	observer.observe(element);
+};
 
 window.addEventListener('resize', () => {
 	window.resetObservers();

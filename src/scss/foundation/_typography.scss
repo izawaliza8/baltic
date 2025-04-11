@@ -118,12 +118,32 @@ $letter-spacings: (
   background-color: transparent;
   transition: all .3s var(--easing);
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: all .3s var(--easing);
+    z-index: -1;
+  }
 
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: var(--black);
+      // background-color: var(--black);
       color: var(--white);
+
+      &:after {
+        transform: scaleY(1);
+      }
     }
   }
 
@@ -177,6 +197,20 @@ $letter-spacings: (
   }
 
 
+}
+
+.arrow-btn {
+  @media (hover: hover) and (pointer: fine) {
+    svg {
+      transition: all .3s var(--easing);
+    }
+
+    &:hover {
+      svg {
+        transform: translateY(-.5rem);
+      }
+    }
+  }
 }
 
 .link {
