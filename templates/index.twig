@@ -253,7 +253,9 @@
 } %}
 
 {% set intro_anim_data = {
-    "image": "https://placehold.co/100x100/CD5E30/A54F2B",
+    "image": "https://cdn.prod.website-files.com/66d9cf21edec64b378a14d51/66e18a42515ddceeafe6dc5e_chevet-gallery-3png.png",
+    "image_3": "https://picsum.photos/id/567/1000/1000",
+    "image_2": "https://placehold.co/100x100/CD5E30/A54F2B",
 } %}
 
 
@@ -266,12 +268,12 @@
 	<intro-anim>
 		<div class="intro-anim">
 			<div class="intro-anim__image">
-				<img src="{{ intro_anim_data.image }}" alt="" class="reveal">
+				<img src="{{ intro_anim_data.image }}" alt="" class="">
 			</div>
-			<div class="intro-anim__logo">
-				{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--beige reveal", "data_root_margin": "100" } %}
-				{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--black reveal", "data_root_margin": "100" } %}
-			</div>
+		</div>
+		<div class="intro-anim__logo">
+			{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--beige reveal", "data_root_margin": "100" } %}
+			{% include "./partials/logo-full-svg.twig" with { "class": "logo-full logo-full--black", "data_root_margin": "100" } %}
 		</div>
 	</intro-anim>
 	<div class="container home-top-logo-container" data-top-logo>

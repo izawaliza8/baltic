@@ -1,12 +1,28 @@
 @use '../global/' as *;
 
 .tas {
+  display: block;
 
+  [data-parallax] {
+    display: block;
+  }
+  
+  &__text-asset-row {
+    @include mq($dt) {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 0 1.4rem;
+      align-items: start;
+      position: relative;
+    }
+  }
+  
   &__text {
     @include mq($dt) {
-      width: 50%;
+      grid-column: 1 / span 6;
       margin-left: 0;
-      margin-bottom: 20vh;
+      position: sticky;
+      top: 30vh;
     }
   }
 
@@ -29,16 +45,19 @@
       @include mq($dt) {
         grid-column: 7 / span 6;
         grid-row: 1;
+        margin-top: 70vh;
+        transform: translateY(20vh);
       }
     }
 
     &--2 {
       width: 75%;
+      margin-top: 3rem;
 
       @include mq($dt) {
         grid-column: 1 / span 4;
         grid-row: 1;
-        margin-top: 20vw;
+        margin-top: 5vw;
       }
     }
 

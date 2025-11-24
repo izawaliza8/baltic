@@ -6,7 +6,6 @@ import './web-comps/header-el';
 import './web-comps/splide';
 import './web-comps/table-el';
 import './web-comps/intro-anim';
+import './web-comps/text-assets-scroll';
 
 gsap.registerPlugin(ScrollTrigger);
-
-console.log('object');

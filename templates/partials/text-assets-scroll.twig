@@ -1,16 +1,16 @@
-<div class="tas">
+<text-assets-scroll class="tas">
 	<div class="tas__wrapper">
 		<div class="tas__content pb-10">
 
-      {% if data.text_1_html is not empty %}
-        <div class="container tas__text fs-20 fs-dt-30 lh-1-2 lh-dt-1-1 pb-40 reveal">{{data.text_1_html | raw}}</div>
-      {% endif %}
 
-      <div class="tas__assets-row">
-      
+      <div class="tas__text-asset-row">
+        {% if data.text_1_html is not empty %}
+            <div class="container tas__text fs-20 fs-dt-30 lh-1-2 lh-dt-1-1 pb-40 reveal">{{data.text_1_html | raw}}</div>
+        {% endif %}
+
         {% if data.link_1 is not empty %}
           <div class="tas__link tas__link--1 reveal">
-            <a href="{{ data.link_1.link.url }}" data-item-hover="View project" class="">
+            <a href="{{ data.link_1.link.url }}" data-item-hover="View project" class="" data-parallax data-parallax-speed="0.1">
               {% if data.link_1.asset.video %}
                 <video src="{{ data.link_1.asset.video }}" alt="{{ data.link_1.asset.alt }}" data-asset muted playsinline></video>
               {% else %}
@@ -31,10 +31,12 @@
             </a>
           </div>
         {% endif %}
+      </div>
+      <div class="tas__assets-row">
 
         {% if data.link_2 is not empty %}
           <div class="tas__link tas__link--2 reveal">
-            <a href="{{ data.link_2.link.url }}" data-item-hover="View project" class="">
+            <a href="{{ data.link_2.link.url }}" data-item-hover="View project" class="" data-parallax>
               {% if data.link_2.asset.video %}
                 <video src="{{ data.link_2.asset.video }}" alt="{{ data.link_2.asset.alt }}" data-asset muted playsinline></video>
               {% else %}
@@ -67,7 +69,7 @@
         
         {% if data.link_3 is not empty %}
           <div class="tas__link tas__link--3 reveal">
-            <a href="{{ data.link_3.link.url }}" data-item-hover="View project" class="">
+            <a data-parallax data-parallax-speed="0.3" href="{{ data.link_3.link.url }}" data-item-hover="View project" class="">
               {% if data.link_3.asset.video %}
                 <video src="{{ data.link_3.asset.video }}" alt="{{ data.link_3.asset.alt }}" data-asset muted playsinline></video>
               {% else %}
