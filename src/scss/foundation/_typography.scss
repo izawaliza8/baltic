@@ -1,285 +1,94 @@
-@use '../global/' as *;
+@use "../global/"as *;
 
-$font-sizes: (
-  '9': 0.9rem,
-  '10': 1rem,
-  '12': 1.2rem,
-  '14': 1.4rem,
-  '16': 1.6rem,
-  '18': 1.8rem,
-  '20': 2rem,
-  '22': 2.2rem,
-  '24': 2.4rem,
-  '25': 2.5rem,
-  '26': 2.6rem,
-  '28': 2.8rem,
-  '30': 3rem,
-  '40': 4rem,
-);
+//
+// Typography Styles
 
-$line-heights: (
-  '1': 1,
-  '1-15': 1.15,
-  '1-2': 1.2,
-  '1-3': 1.3,
-  '1-4': 1.4,
-  '2': 2,
-  '2-2': 2.2,
-);
+// Headlines
+.heading {
+  font-family: var(--font);
+  font-weight: 500; // Medium
+  line-height: 1.2;
 
-$letter-spacings: (
-  '0': 0rem,
-);
+  &--1 {
+    font-size: 6.4rem; // 64px
+    letter-spacing: -0.64px;
+  }
 
-@each $key, $value in $font-sizes {
-  .fs-#{$key} {
-    font-size: $value;
+  &--2 {
+    font-size: 5.4rem; // 54px
+  }
+
+  &--3 {
+    font-size: 2.2rem; // 22px
   }
 }
 
-@each $key, $value in $font-sizes {
-  .fs-dt-#{$key} {
-    @include mq($dt) {
-      font-size: $value;
-    }
+// Paragraph
+.paragraph {
+  font-family: var(--font);
+  font-weight: 400; // Regular
+  line-height: 1.4;
+
+  &--1 {
+    font-size: 1.7rem; // 17px
   }
 }
 
-@each $key, $value in $line-heights {
-  .lh-#{$key} {
-    line-height: $value;
+// Button / Link
+.button {
+  font-family: var(--font);
+  font-weight: 500; // Medium
+
+  line-height: 1;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  &--regular {
+    font-size: 1.8rem; // 18px
+  }
+
+  &--menu {
+    font-size: 1.6rem; // 16px
+    box-shadow: none;
+  }
+
+  &--grey {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+  }
+
+  &--arrow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &--yellow {
+    display: flex;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    border: 1px solid var(--yellow);
+  }
+
+  &__arrow {
+    background-color: var(--dark-yellow);
+    padding: 5px;
+    border-radius: 5px;
   }
 }
 
-@each $key, $value in $line-heights {
-  .lh-dt-#{$key} {
-    @include mq($dt) {
-      line-height: $value;
-    }
+// Caption
+.caption {
+  font-family: var(--font);
+  font-weight: 500; // Medium
+  font-size: 1.7rem; // 17px
+  line-height: 1.2;
+
+  &--small {
+    font-size: 1.2rem; // 12px
+    text-transform: uppercase;
   }
-}
-
-@each $key, $value in $letter-spacings {
-  .ls-#{$key} {
-    letter-spacing: $value;
-  }
-}
-
-@each $key, $value in $letter-spacings {
-  .ls-dt-#{$key} {
-    @include mq($dt) {
-      letter-spacing: $value;
-    }
-  }
-}
-
-.ff-mono {
-  font-family: var(--font-mono);
-}
-
-.center {
-  text-align: center;
-}
-
-.left {
-  text-align: left;
-}
-
-.left-dt {
-  @include mq($dt) {
-    text-align: left;
-  }
-}
-
-.italic {
-  font-style: italic;
-}
-
-.underline {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-}
-
-.upper {
-  text-transform: uppercase;
-}
-
-.btn {
-  color: var(--black);
-  font-size: 1.6rem;
-  line-height: 1.3;
-  border: 1px solid var(--black);
-  padding: .8rem 1.6rem;
-  display: inline-block;
-  text-align: center;
-  border-radius: 2.4rem;
-  text-transform: uppercase;
-  background-color: transparent;
-  transition: all .3s var(--easing);
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--black);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: all .3s var(--easing);
-    z-index: -1;
-  }
-
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      // background-color: var(--black);
-      color: var(--white);
-
-      &:after {
-        transform: scaleY(1);
-      }
-    }
-  }
-
-  @include mq($dt) {
-    padding: .8rem 4.2rem;
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-
-  &--white {
-    color: var(--white);
-    border-color: var(--white);
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: var(--white);
-        color: var(--blue);
-      }
-    }
-  }
-
-  &--maroon-h {
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: var(--maroon);
-      }
-    }
-  }
-
-  &--green {
-    background-color: var(--light-green-2);
-    border-color: var(--light-green-2);
-  }
-
-  &--medium {
-
-    @include mq($dt) {
-      padding: .8rem 6rem;
-    }
-  }
-
-  &--wide {
-
-    @include mq($dt) {
-      padding: .8rem 20rem;
-    }
-  }
-
-  &--100 {
-    width: 100%;
-  }
-
-
-}
-
-.arrow-btn {
-  @media (hover: hover) and (pointer: fine) {
-    svg {
-      transition: all .3s var(--easing);
-    }
-
-    &:hover {
-      svg {
-        transform: translateY(-.5rem);
-      }
-    }
-  }
-}
-
-.link {
-  font-family: var(--font-mono);
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  position: relative;
-  display: inline-block;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--black);
-    transition: all .3s var(--easing);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover::after {
-      transform: scaleX(0);
-    }
-  }
-}
-
-.animated-underline {
-  @media (hover: hover) and (pointer: fine) {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--black);
-    transition: all .3s var(--easing);
-    transform: scaleX(0);
-  }
-
-    &:hover::after {
-      transform: scaleX(1);
-    }
-  }
-}
-
-
-
-.wysiwyg {
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-
-  p {
-    margin-bottom: 1em;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  em {
-    font-style: italic;
-  }
-
 }

@@ -1,13 +1,3 @@
-import './reveal-on-scroll';
-import './header-footer';
-import './item-hover';
-
-import './web-comps/header-el';
-import './web-comps/splide';
-import './web-comps/table-el';
-import './web-comps/intro-anim';
-import './web-comps/text-assets-scroll';
-
 gsap.registerPlugin(ScrollTrigger);
 
 import '../scss/main.scss';
@@ -23,7 +13,7 @@ import '../scss/main.scss';
 
 // import './reveal-on-scroll';
 
-// // Import web components
+// Import web components
 // import './web-comps/splide';
 // import './web-comps/time';
 // import './web-comps/back-to-top';
@@ -34,7 +24,7 @@ import '../scss/main.scss';
 // import './web-comps/menu-carousel';
 // import './web-comps/tabs';
 // import './web-comps/accordion';
-// import './web-comps/intro-anim';
+import './web-comps/scroll-video';
 
 // const header = document.querySelector('header-el');
 // const headerHeight = header.offsetHeight;

@@ -1,0 +1,19 @@
+{# Button component
+   Usage: {% include './components/button.twig' with { "text": "Click me", "class": "button", "type": "button" } %}
+   Usage as link: {% include './components/button.twig' with { "text": "Click me", "class": "button", "href": "/path" } %}
+#}
+{% if href %}
+	<a href="{{ href }}" class="button{% if arrow %} button--arrow{% endif %}{% if class %} {{ class }}{% endif %}" {% if title %}title="{{ title }}"{% endif %}>
+		{{ text|default('Button') }}
+		{% if arrow %}{% include '../svgs/arrow-btn.twig' %}{% endif %}
+
+	</a>
+{% else %}
+	<button type="{{ type|default('button') }}" class="button{% if arrow %} button--arrow{% endif %} {% if class %} {{ class }}{% endif %}" {% if title %}title="{{ title }}"{% endif %}>
+		{{ text|default('Button') }}
+	{% if arrow %}{% include '../svgs/arrow-btn.twig' %}{% endif %}
+	</button>
+{% endif %}
+
+
+

@@ -1,257 +1,39 @@
-@use '../global' as *;
-
-.header-wrapper {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 90000;
-  transition: transform 0.35s var(--easing);
-
-  .hide-nav & {
-    transform: translateY(-100%);
-  }
-}
+@use "../global"as *;
 
 .header {
-  background-color: var(--white);
-  transition: transform 0.35s var(--easing);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  z-index: 90000;
+  padding-left: 48px;
+  padding-right: 48px;
+  height: 70px;
+  width: 100%;
 
-  .start-intro & {
-    transform: translateY(-100%);
-  }
-
-  .show-nav & {
-    transform: translateY(0);
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--black);
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity 0.25s var(--easing);
-
-    @include mq($dt) {
-      display: none;
-    }
-  }
-
-  &.active {
-    &:after {
-      opacity: 1;
-    }
-  }
-  
-
-  &__bar {
+  &__wrapper {
     display: flex;
     justify-content: space-between;
-    min-height: 5rem;
-    align-items: flex-end;
-  }
-
-  &__logo-wrapper {
-    position: relative;
-    z-index: 10;
-  }
-
-  &__logo {
-    height: 2.6rem;
-    width: auto;
-    transition: opacity 0.15s var(--easing);
-
-    @include mq($dt) {
-      height: 3.2rem;
-    }
-
-    path {
-      transition: fill 0.25s var(--easing);
-
-      .active & {
-        fill: var(--white);
-
-        @include mq($dt) {
-          fill: var(--black);
-        }
-      }
-    }
-  }
-
-  &__burger {
-    position: relative;
-    z-index: 10;
-
-    span {
-      width: 52px;
-      height: 2px;
-      background-color: var(--black);
-      display: block;
-      margin: 5px 0;
-      transition: opacity 0.25s var(--easing), transform 0.25s var(--easing), color 0.25s var(--easing);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .active & {
-      span {
-        background-color: var(--white);
-
-        &:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        &:nth-child(2) {
-          opacity: 0;
-        }
-
-        &:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-      }
-
-
-    }
-  }
-
-  &__nav {
-    position: fixed;
-    inset: 0;
-    overscroll-behavior: contain;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s var(--easing);
-    background-color: var(--black);
-    height: 100vh;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--white);
-    pointer-events: none;
-
-    @include mq($dt) {
-      opacity: 1;
-      pointer-events: all;
-      background-color: transparent;
-      position: relative;
-      height: 100%;
-      color: var(--black);
-    }
-
-    .active & {
-      opacity: 1;
-      pointer-events: all;
-    }
-  }
-
-  &__nav-lists {
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    flex: 1;
-    justify-content: space-between;
-    padding-top: 10rem;
-
-    @include mq($dt) {
-      flex-direction: row;
-      gap: 3rem;
-      justify-content: space-between;
-      padding-top: 0;
-    }
-  }
-
-  &__nav-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.3rem;
-
-    @include mq($dt) {
-      flex-direction: row;
-      gap: 3rem;
-      justify-content: flex-end;
-    }
-  }
-
-  &__nav-logo {
-    width: 9.5rem;
-    height: auto;
-  }
-
-  &__nav-item {
-    border-bottom: 1px solid var(--white);
-    padding-bottom: 1.5rem;
-    width: 75%;
-
-    @include mq($dt) {
-      width: auto;
-      border: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  &__nav-link {
-    @media (hover: hover) and (pointer: fine) {
-      transition: all .3s var(--easing);
-
-      &:hover {
-        transform: skew(-15deg, 0deg);
-        display: inline-block;
-      }
-    }
-  }
-
-  &__byline {
-    display: flex;
-    gap: .5rem;
     align-items: center;
-    position: absolute;
-    right: 0;
-    transform: rotate(90deg) translateY(-150%) translateX(-50%);
-    top: 50%;
-
-    @include mq($dt) {
-      display: none;
-    }
+    height: 100%;
+ 
   }
 
-  &__buttons {
-    color: var(--white);
+  &__menu {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.6rem;
-    justify-content: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 8px;
   }
 
-  &__button {
+  &__menu-item {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  &__actions {
     display: flex;
-    grid-column: span 2;
-    width: 45%;
-    border-radius: 2.4rem;
-    border: 1px solid var(--white);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: .4rem 1.6rem;
-    flex-grow: 1;
-
-    &:last-child:nth-child(odd) {
-      flex-grow: 0;
-      border: 0;
-    }
+    gap: 10px;
   }
-
-  &__ticker {
-    border-top: 1px solid var(--white);
-    padding-top: 1.3rem;
-    margin-top: 3.2rem;
-  }
-
 }

@@ -1,4 +1,4 @@
-@use '../global/' as *;
+@use '../global/'as *;
 
 :root {
 
@@ -6,28 +6,28 @@
   // Fonts
   //
 
-  --font: "Wagram", serif;
-  --font-mono: "Wagram Mono", monospace;
+  --font: "Satoshi", sans-serif;
 
   //
   // Colors
   //
 
-  --black: #1A1A1A;
-  --white: #FEFEFE;
-  --beige: #E7D8C8;
-  --light-grey: #D8D8D8;
+  --yellow: #F5FF63;
+  --dark-yellow: #E3EC5C;
+  --navy-blue: #232B38;
+  --black: #1D1C1C;
+  --grey-1: #818181;
+  --grey-2: #E6E6E6;
+  --grey-3: #CFCFCF;
+  --grey-4: #E0E0E0;
 
-  --blue: #4E758B;
-  --orange: #CD5E30;
-  --pale-yellow: #DFCD9D;
-  --yellow: #D69626;
-  --dark-grey: #2E2F33;
-  --brown: #754328;
+  --bg-primary: var(--grey-2);
+  --bg-secondary: var(--navy-blue);
 
-  //
-  // Other
-  //
+  --border: var(--grey-3);
+
+  --text-primary: var(--black);
+  --text-secondary: var(--grey-1);
 
   --easing: cubic-bezier(.22, .61, .36, 1);
   --max-width: 170rem;

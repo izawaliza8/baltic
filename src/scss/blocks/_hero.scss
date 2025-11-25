@@ -1,0 +1,38 @@
+.hero {
+  padding-top: 143px;
+  color: var(--text-primary);
+
+  &__text-wrapper {
+    width: 100%;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  &__heading {
+    max-width: 932px;
+
+    span {
+      color: var(--grey-1);
+    }
+  }
+
+  &__sub-text-wrapper {
+    padding-top: 83px;
+    margin-left: 228px;
+    max-width: 546px;
+  }
+
+  &__video {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    object-fit: cover;
+    margin-top: 29px;
+    // Initial scale and transform-origin handled by GSAP
+  }
+
+  &__scroll-btn {
+    position: absolute;
+    top: calc(100vh - 70px);
+    left:48px
+  }
+}

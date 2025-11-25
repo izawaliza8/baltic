@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -94,46 +95,31 @@ module.exports = {
       template: './templates/about.twig',
       inject: true
     }),
-    new HtmlWebpackPlugin({
-      filename: 'collective.html',
-      template: './templates/collective.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'contact.html',
-      template: './templates/contact.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'estelle-manor.html',
-      template: './templates/estelle-manor.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'florentine-kitchen-knives.html',
-      template: './templates/florentine-kitchen-knives.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'projects.html',
-      template: './templates/projects.twig',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'services.html',
-      template: './templates/services.twig',
-      inject: true
-    }),
+   
     
     new MiniCssExtractPlugin({
       filename: 'css/[name].css' // Remove contenthash for development
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'assets/videos',
+          to: 'assets/videos',
+        },
+      ],
     }),
     new BrowserSyncPlugin(
       {
         host: 'localhost',
         port: 3000,
         proxy: 'http://localhost:8080/',
-        files: ['dist/**/*'],
+        files: ['dist/**/*', 'assets/**/*'],
+        serveStatic: [
+          {
+            route: '/assets',
+            dir: 'assets'
+          }
+        ],
         notify: false,
         open: false
       },
@@ -144,9 +130,15 @@ module.exports = {
     )
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
+    static: [
+      {
+        directory: path.join(__dirname, 'dist'),
+      },
+      {
+        directory: path.join(__dirname, 'assets'),
+        publicPath: '/assets',
+      },
+    ],
     compress: true,
     port: 8080,
     hot: 'only',
@@ -155,14 +147,6 @@ module.exports = {
       rewrites: [
         { from: /^\/$/, to: '/index.html' },
         { from: /^\/about/, to: '/about.html' },
-        { from: /^\/collective/, to: '/collective.html' },
-        { from: /^\/news/, to: '/news.html' },
-        { from: /^\/faqs/, to: '/faqs.html' },
-        { from: /^\/contact/, to: '/contact.html' },
-        { from: /^\/estelle-manor/, to: '/estelle-manor.html' },
-        { from: /^\/florentine-kitchen-knives/, to: '/florentine-kitchen-knives.html' },
-        { from: /^\/projects/, to: '/projects.html' },
-        { from: /^\/services/, to: '/services.html' },
   
         // Add more routes as needed
       ],

@@ -1,176 +1,30 @@
-{% set nav = [
-    {
-      "title": "Home",
-      "url": "/",
-      "class": "mob-only"
-    },
-    {
-      "title": "Collective",
-      "url": "/collective"
-    },
-    {
-      "title": "Projects",
-      "url": "/projects"
-    },
-    {
-      "title": "Services",
-      "url": "/services"
-    },
-		{
-      "title": "About",
-      "url": "/about"
-		},
-    {
-      "title": "Contact",
-      "url": "/contact"
-    },
-  ]
-%}
+<header class="header__wrapper" role="banner">
+	{% block logo %}
+		{% include '../svgs/logo.twig' %}
+	{% endblock %}
+	<nav class="header__navigation" aria-label="Main navigation">
+		<ul class="header__menu">
+			<li class="header__menu-item">
+				<a href="/about" title="About">About</a>
+			</li>
+			<li class="header__menu-item">
+				<a href="/focus-areas" title="Focus Areas">Focus Areas</a>
+			</li>
+			<li class="header__menu-item">
+				<a href="/events" title="Events">Events</a>
+			</li>
+			<li class="header__menu-item">
+				<a href="/insights" title="Insights">Insights</a>
+			</li>
+			<li class="header__menu-item">
+				<a href="/membership" title="Membership">Membership</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="header__actions">
+		{% include '../components/button.twig' with { "text": "Contact", "class": "button--grey", "type": "button" } %}
 
-{% set info_bar = {
-    "direction": "ltr",
-    "items": [
-      {
-        "text": "Creativity is a wild mind and a disciplined eye",
-      }
-    ] 
-} %}
-
-
-{% set buttons = [
-    {
-      "title": "Whatsapp",
-      "url": "https://wa.me/1234567890",
-      "class": "mob-only",
-			"target": "_blank",
-			"rel": "noopener noreferrer",
-    },
-		{
-      "title": "Book a call",
-			"url": "https://calendly.com/kinn-collective/30min",
-			"target": "_blank",
-			"rel": "noopener noreferrer",
-      "class": "mob-only",
-    },
-		{
-      "title": "Instagram",
-			"url": "https://www.instagram.com/kinn.collective",
-			"target": "_blank",
-			"rel": "noopener noreferrer",
-			"class": "mob-only",
-    }
-  ]
-%}
-
-
-<header-el class="header">
-
-	<div class="header__bar container pt-16 pb-16">
-
-		{% if current_page == 'home' %}
-			<h1 class="header__logo-wrapper reveal">
-				<span class="visually-hidden">Kinn Collective logo</span>
-				{% include "./logo-full-svg.twig" with { "class": "header__logo" }  %}
-			</h1>
-		{% else %}
-			<a href="/" class="header__logo-wrapper reveal">
-				<span class="visually-hidden">Kinn Collective logo</span>
-				{% include "./logo-full-svg.twig" with { "class": "header__logo" }  %}
-			</a>
-		{% endif %}
-
-		<button class="header__burger mob-only unstyled-button reveal" data-delay="200" data-burger>
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-
-		<nav class="header__nav pt-80 pb-15 pt-dt-10 pb-dt-5">
-
-			<div class="header__nav-lists reveal" data-delay="200">
-
-				<ul class="header__nav-list container container--mob unstyled-list">
-					{% for item in nav %}
-						<li class="header__nav-item fs-20 fs-dt-16 {{ item.class|default('') }}">
-							{% if item.url %}
-								<a href="{{ item.url }}" class="header__nav-link">{{ item.title }}</a>
-							{% endif %}
-						</li>
-					{% endfor %}
-				</ul>
-
-			<div class="mob-only header__mob-bottom">
-
-				<div class="mob-only header__buttons container container--mob">
-					{% for button in buttons %}
-						<a href="{{ button.url }}" class="header__button header__button upper fs-16" target="{{ button.target }}" rel="{{ button.rel }}">{{ button.title }}</a>
-					{% endfor %}
-				</div>
-			
-				{% if info_bar is defined %}
-					{% set scrollspeed = info_bar.direction == 'ltr' ? 1 : -1 %}
-
-					<sp-lide data-auto-scroll="1" class="splide header__ticker" data-splide='{
-																"type": "loop",
-																"autoWidth": true,
-																"gap": "3rem",
-																"focus": "center",
-																"pagination": false,
-																"arrows": false,
-																"drag": "free",
-																"autoScroll": {
-																	"speed": {{scrollspeed}},
-																	"pauseOnHover": true
-																},
-																"mediaQuery": "min",
-																"breakpoints": {
-																	"1180": {
-																			"gap": "2.4rem"
-																	}
-																}
-															}'>
-							<div class="splide__track">
-								<ul class="splide__list unstyled-list">
-
-									{% for item in info_bar.items %}
-										<li class="splide__slide">
-											<div class="header__ticker-link fs-14 ">
-												{{ item.text|default('') }}
-											</div>
-										</li>
-									{% endfor %}
-									{% for item in info_bar.items %}
-										<li class="splide__slide">
-											<div class="header__ticker-link fs-14 ">
-												{{ item.text|default('') }}
-											</div>
-										</li>
-									{% endfor %}
-									{% for item in info_bar.items %}
-										<li class="splide__slide">
-											<div class="header__ticker-link fs-14 ">
-												{{ item.text|default('') }}
-											</div>
-										</li>
-									{% endfor %}
-								</ul>
-							</div>
-						</sp-lide>
-					{% endif %}
-		    </div>
-			</div>
-			
-			<div class="header__byline upper fs-14 mob-only">
-				<span>
-					Site by
-				</span>
-				<svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<rect x="34" y="1" width="17" height="33" rx="8.5" transform="rotate(90 34 1)" stroke="#ffffff"/>
-				<path d="M12.7898 14.168C10.0598 14.168 8.15575 12.39 8.15575 9.156C8.15575 6.384 10.0878 4.032 13.0838 4.032C14.3298 4.032 15.3938 4.396 16.3178 4.956L16.3878 7.476H15.8838C15.4778 6.118 15.1278 5.558 14.6938 5.264C14.3158 4.942 13.6858 4.704 12.9158 4.704C10.8158 4.704 9.59775 6.328 9.59775 8.596C9.59775 11.718 10.9698 13.468 13.1118 13.468C14.1618 13.468 14.8198 13.09 15.2537 12.754V10.724C15.2537 10.164 15.2118 10.08 13.6158 9.856V9.38H17.4798V9.856C16.5838 10.08 16.5558 10.15 16.5558 10.724V12.936C15.6038 13.636 14.3018 14.168 12.7898 14.168ZM18.3201 14V13.51C19.7481 13.272 19.8181 13.174 19.8181 12.614V5.586C19.8181 5.026 19.7481 4.928 18.3201 4.69V4.2H22.5621C25.1801 4.2 26.4681 5.25 26.4681 7.112C26.4681 8.876 25.1941 10.248 22.6461 10.248C22.0581 10.248 21.6101 10.192 21.1761 10.122V12.614C21.1761 13.174 21.2321 13.272 22.6741 13.51V14H18.3201ZM21.1761 9.45C21.5541 9.562 22.0301 9.646 22.5481 9.646C24.2281 9.646 25.0261 8.722 25.0261 7.126C25.0261 5.586 24.1581 4.816 22.5061 4.816H21.1761V9.45Z" fill="#ffffff"/>
-				</svg>
-			</div>
-		</nav>	
-
+		{% include '../components/button.twig' with { "text": "Join us", "class": "button--yellow ", "type": "button", "arrow": "true" } %}
 	</div>
+</header>
 
-</header-el>
