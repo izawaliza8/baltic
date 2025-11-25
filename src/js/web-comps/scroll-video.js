@@ -37,7 +37,6 @@ if (heroScrollBtn && heroSection) {
       trigger: heroScrollBtn,
       start: "top bottom-=100px",
       end: "bottom bottom",
-      markers: true,
       scrub: 0.5,
     },
   });
